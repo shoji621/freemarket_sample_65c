@@ -24,6 +24,7 @@ Things you may want to cover:
 * ...
 
 # DB設計
+<img width="1170" alt="DB設計図 2019-12-19 20 18 00" src="https://user-images.githubusercontent.com/57927432/71171261-af564600-22a0-11ea-8298-12155d2bed17.png">
 
 ## usersテーブル
 |Column|Type|Options|
