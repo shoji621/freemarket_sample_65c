@@ -120,7 +120,7 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: "User"
 - belongs_to :seller, class_name: "User"
 
-##favoritesテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -131,7 +131,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
-##categoriesテーブル(gem 'ancestry'を使用)
+## categoriesテーブル(gem 'ancestry'を使用)
 |Column|Type|Options|
 |------|----|-------|
 |name|references|null: false, foreign_key: true|
