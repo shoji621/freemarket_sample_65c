@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # DB設計
-<img width="1170" alt="DB設計図 2019-12-19 20 18 00" src="https://user-images.githubusercontent.com/57927432/71171261-af564600-22a0-11ea-8298-12155d2bed17.png">
+<img width="1072" alt="DB設計図 2019-12-20 16 07 23" src="https://user-images.githubusercontent.com/57927432/71236856-54295f80-2343-11ea-8f0a-fdb5befc5be6.png">
 
 ## usersテーブル
 |Column|Type|Options|
@@ -35,18 +35,18 @@ Things you may want to cover:
 |first_name_kana|string|null: false|
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true, default: ""|
-|gender|integer|--|
+|gender|integer||
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |phone_authy|string|null: false, unique: true, limit: 11|
-|introduction|text|--|
+|introduction|text||
 |birth_day|integer|null: false|
-|icon_image|string|--|
+|icon_image|string||
 |encrypted_password|string|null: false, default: ""|
-|reset_password_token|string|--|
-|reset_password_sent_at|datetime|--|
-|remember_created_at|datetime|--|
+|reset_password_token|string||
+|reset_password_sent_at|datetime||
+|remember_created_at|datetime||
 
 #### Association
 - has_one :address, dependent: :destroy
@@ -64,7 +64,7 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |zip_code|string|null: false|
-|prefecture|integer|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
@@ -72,6 +72,7 @@ Things you may want to cover:
 
 #### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 
 ## cardsテーブル(gem 'payjp'を使用)
@@ -92,27 +93,27 @@ Things you may want to cover:
 |price|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|condition_id|references|null: false, foreign_key: true|
-|postage_id|references|null: false, foreign_key: true|
-|shipping_method_id|references|null: false, foreign_key: true|
-|shipping_area_id|references|null: false, foreign_key: true|
-|shipping_day_id|references|null: false, foreign_key: true|
+|condition_id|integer|null: false|
+|postage_id|integer|null: false|
+|shipping_method_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|shipping_day_id|integer|null: false|
 |item_image_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |encrypted_password|string|null: false, default: ""|
-|reset_password_token|string|--|
-|reset_password_sent_at|datetime|--|
-|remember_created_at|datetime|--|
+|reset_password_token|string||
+|reset_password_sent_at|datetime||
+|remember_created_at|datetime||
 
 #### Association
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :condition
-- belongs_to :postage
-- belongs_to :shipping_method
-- belongs_to :shipping_area
-- belongs_to :shipping_day
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :postage
+- belongs_to_active_hash :shipping_method
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :shipping_day
 - has_one :review
 - has_many :item_images
 - has_many :comment
@@ -161,48 +162,33 @@ Things you may want to cover:
 - has_many :items
 
 
-## conditionsテーブル
+## conditionsテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|null: false|
 
-#### Association
-- has_many :items
 
-
-## postagesテーブル
+## postagesテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
 |burden|string|null: false|
 
-#### Association
-- has_many :items
-
-## shipping_methodsテーブル
+## shipping_methodsテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
 |method|string|null: false|
 
-#### Association
-- has_many :items
 
-
-## shipping_areasテーブル
+## prefecturesテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
-|prefecture|string|null: false|
-
-#### Association
-- has_many :items
+|name|string|null: false|
 
 
-## shipping_daysテーブル
+## shipping_daysテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
 |day|string|null: false|
-
-#### Association
-- has_many :items
 
 
 ## item_imagesテーブル
