@@ -3,7 +3,7 @@ lock '3.11.2'
 
 set :application, 'freemarket_sample_65c'
 
-set :repo_url,  'git@github.com:seishikasai/freemarkt_sample_65c.git'
+set :repo_url,  'git@github.com:seishikasai/freemarket_sample_65c.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
