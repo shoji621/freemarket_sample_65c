@@ -1,13 +1,14 @@
+
 body {
   background-color: #f0f0f0;
   font-size: 14px;
   color: #333;
   margin: 0 auto;
   font-family: Arial;
-  
+  width: 100vw;
 }
 h1,h2,h3,h4,h5,h6,p {
-  padding: 10px 0;
+  padding: 8px 0;
   margin: 0;
 }
 
@@ -31,6 +32,8 @@ h1,h2,h3,h4,h5,h6,p {
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
   text-align: center;
+  font-size: 28px;
+  font-weight: 800;
 }
 
 ul2 {
@@ -60,13 +63,12 @@ li2 {
 
 .popu-contents {
   background-color: rgb(245, 245, 245);
-  height: 1300px;
+  height: 800px;
 }
 
 .sell-box {
   height: 160px;
   width: 160px;
-  background-color:greenyellow;
   position: fixed;
   right: 2%;
   bottom: 3%;
@@ -76,8 +78,8 @@ li2 {
 .sell-btn {
   height: 160px;
   width: 160px;
-  background-color: red;
-  border-radius: 50%;
+  background-color: rgb(234, 53, 45);
+  border-radius: 51%;
   position: fixed;
   right: 2%;
   bottom: 3%;
@@ -86,20 +88,22 @@ li2 {
   
 .sell {
   height: 30px;
-  width: 100%;
-  color: black;
-  font-size: 25px;
+  width: 34%;
+  color: white;
+  font-size: 23px;
+  font-weight: 600;
   margin: 0 auto;
   margin-top: 20px;
   /* text-align: center; */
 }
 
-
-
-/* .sell {
-  color: blue;
-  font-size: 25px;
-} */
+.icon {
+  color: white;
+  font-size: 60px;
+  position: relative;
+  left: 48px;
+  top: 10px;
+}
 
 .cat-box {
   background-color: rgb(245, 245, 245);
@@ -119,6 +123,8 @@ li2 {
 .cat-new-item {
   position: absolute;
   bottom: 0;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .more-btn {
@@ -142,7 +148,7 @@ li2 {
 }
 
 li.item-box {
-  background-color: rgb(250, 243, 214);
+  background-color: white;
   height: 260px;
   width: 180px;
   margin: 0 0 20px 0;
