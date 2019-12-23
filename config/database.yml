@@ -27,7 +27,6 @@ development:
 test:
   <<: *default
   database: freemarket_sample_65c_test
-
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -50,5 +49,6 @@ test:
 production:
   <<: *default
   database: freemarket_sample_65c_production
-  username: freemarket_sample_65c
-  password: <%= ENV['FREEMARKET_SAMPLE_65C_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
