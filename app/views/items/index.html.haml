@@ -1,34 +1,7 @@
-.all
+.wrapper
   .header
-    .top-menu
-      .top-menu__upper
-        .left-side
-          = link_to "/" do
-            = image_tag "fmarket_logo_red.svg", size: "139x37"
-        .right-side
-          .header-form
-            サーチフォーム
-      .top-menu__under
-        .top-menu__under__search
-          .top-menu__under__search__category
-            = link_to "/", class:'category-search' do
-              = icon('fas', 'list-ul', class: 'category-link')
-              カテゴリーから探す
-          .top-menu__under__search__brand
-            = link_to "/", class:'brand-search' do
-              = icon('fas', 'tags', class: "brand-link")
-              ブランドから探す
-        .top-menu__under__user-info
-          .user-registration
-            = link_to "新規会員登録", "/", class: 'registration-btn'
-          .user-sessions
-            = link_to "ログイン", "/", class: 'session-btn'
-
-  .contents
-    .main-contents
-      .slide_container
-        %ul.slider
-          %li
-            = image_tag "merry.jpg", size: "1440x400", class:'slide-image'
-          %li
-            = image_tag "forest.jpg", size: "1440x400", class:'slide-image'
+    = render 'mercari_header'
+  .content
+    = render 'mercari_content'
+  .footer
+    = render 'mercari_footer'
