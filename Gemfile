@@ -72,3 +72,9 @@ group :production do
 end
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'devise'
+gem "jquery-rails"
+gem 'jquery-turbolinks'
+gem 'active_hash'
+gem 'font-awesome-sass'
+gem 'pry-rails'

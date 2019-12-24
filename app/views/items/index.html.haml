@@ -14,9 +14,15 @@
             カテゴリーから探す
           .top-menu__under__search__brand
             ブランドから探す
-        .top-menu__under__user-info
-          .new-registration
-            新規会員登録
+        %h1.top-menu__under__user-info
+          トップページ
+        - if user_signed_in?
+          %h2 ログインしています
           .user-sessions
-            ログイン
- 
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %h2 ログインしていません
+          .new-registration
+            = link_to "新規登録", index_path
+          .user-sessions
+            = link_to "ログイン", new_user_session_path

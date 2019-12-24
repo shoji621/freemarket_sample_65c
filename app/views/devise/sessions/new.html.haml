@@ -1,0 +1,25 @@
+.single-main
+  .login-panel
+    .login-no-account
+      %p アカウントをお持ちでない方はこちら
+      = link_to index_path, class:"sigup-assist-link" do
+        新規会員登録
+    .login-form-inner
+      = link_to '#', class: "blue btn-default btn-sns btn-sns-facebook", id: "facebook-login" do
+        = icon('fab', 'facebook-square', class:"f-icon")
+        Facebookでログイン
+      = link_to '#', class: "g-link btn-default btn-sns btn-sns-google", id: "google-login" do
+        = icon('fab', 'google', class:"g-icon")
+        Googleでログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-form-inner-ex
+        .form-group
+          = f.text_field :email, placeholder:"メールアドレス"
+        .form-group
+          = f.text_field :password, placeholder:"パスワード"
+        .form-group
+        = f.submit "ログイン", class:"login-submit btn-default btn-red"
+        %input{name: "login_callback",type: "hidden", value: "/jp/"}/
+        %input{name: "__csrf_value", type: "hidden", value: "e1c1f93e58bd81edbfc8ada7584e2372f3ecbdcd073acc163d88bd3d27f7934d4e073c5ea9afce51b11b4c8411376709480ec476fd05d37de0c5a110009748475"}/
+        = link_to "https://www.mercari.com/jp/password/reset/start/" do
+          パスワードをお忘れの方
