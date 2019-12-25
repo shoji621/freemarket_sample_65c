@@ -1,0 +1,220 @@
+
+body {
+  background-color: #f0f0f0;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+  font-family: Arial;
+  width: 100vw;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 8px 0;
+  margin: 0;
+}
+
+.popu-bar {
+  background-color: rgb(255, 255, 255);
+  height: 170px;
+  width: 100vw;
+}
+
+.popu-box {
+  background-color: rgb(255, 255, 255);;
+  height: 90px;
+  width: 570px;
+  margin: 0 auto;
+  padding-top: 45px;
+  
+
+}
+
+.category {
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+ul2 {
+  margin: 8px auto 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+li2 {
+  float: left;
+  margin: 0 auto;
+}
+
+.cta-btn {
+  display: inline-block;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  background-color: rgb(239, 239, 239);
+  border-radius: 40px;
+  padding: 4px 17px;
+}
+
+.popu-contents {
+  background-color: rgb(245, 245, 245);
+  height: 800px;
+}
+
+.sell-box {
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  right: 2%;
+  bottom: 3%;
+  z-index: 4;
+}
+
+.sell-btn {
+  height: 160px;
+  width: 160px;
+  background-color: rgb(234, 53, 45);
+  border-radius: 51%;
+  position: fixed;
+  right: 2%;
+  bottom: 3%;
+  z-index: 5;
+}
+  
+.sell {
+  height: 30px;
+  width: 34%;
+  color: white;
+  font-size: 23px;
+  font-weight: 600;
+  margin: 0 auto;
+  margin-top: 20px;
+  /* text-align: center; */
+}
+
+.icon {
+  color: white;
+  font-size: 60px;
+  position: relative;
+  left: 48px;
+  top: 10px;
+}
+
+.cat-box {
+  background-color: rgb(245, 245, 245);
+  height: 1200px;
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.cat-bar {
+  background-color: rgb(245, 245, 245);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.cat-new-item {
+  position: absolute;
+  bottom: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.more-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-weight: bold;
+  color: rgb(0, 149, 238);
+
+}
+
+.items-box {
+  background-color: rgb(245, 245, 245);
+  width: 1020px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  flex-wrap: wrap;
+  /* 記事折り返し設定 */
+}
+
+li.item-box {
+  background-color: white;
+  height: 260px;
+  width: 180px;
+  margin: 0 0 20px 0;
+  box-shadow: 0 0 5px gray;
+
+  /* 記事アイテムの一つの大きさ */
+  /* width: 30%; */
+  /* height: auto; */
+
+}
+
+.img {
+  background-color: black;
+  height: 180px;
+  width: 180px;
+  display: flex;
+  position: relative;
+}
+
+.title-box {
+  height: 60px;
+  width: 180px;
+  background-color: rgb(255, 255, 255);
+}
+
+.title {
+  background-color: rgb(255, 255, 255);
+  margin: 0 6px;
+}
+
+.price {
+  background-color: grey;
+  height: 20px;
+  width: 80px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  font-size: 16px;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  text-align: center;
+  
+}
+
+.item-box:hover {
+  box-shadow: 0 0 1px blue;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* @media screen and (max-width: 920px) {
+  記事アイテムを大きくして二列にする
+  .items-box {
+    width: 45%;
+  }
+  .items-box p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .items-box {
+    width: 85%;
+    margin-bottom: -100px;
+  }
+} */

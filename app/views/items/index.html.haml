@@ -1,28 +1,7 @@
-.all
+.wrapper
   .header
-    .top-menu
-      .top-menu__upper
-        .left-side
-          = link_to root_path do
-            = image_tag "mercari.png" 
-        .right-side
-          .header-form
-            サーチフォーム
-      .top-menu__under
-        .top-menu__under__search
-          .top-menu__under__search__category
-            カテゴリーから探す
-          .top-menu__under__search__brand
-            ブランドから探す
-        %h1.top-menu__under__user-info
-          トップページ
-        - if user_signed_in?
-          %h2 ログインしています
-          .user-sessions
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
-          %h2 ログインしていません
-          .new-registration
-            = link_to "新規登録", index_path
-          .user-sessions
-            = link_to "ログイン", new_user_session_path
+    = render 'mercari_header'
+  .content
+    = render 'mercari_content'
+  .footer
+    = render 'mercari_footer'
