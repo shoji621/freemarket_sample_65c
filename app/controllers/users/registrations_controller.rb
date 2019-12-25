@@ -8,7 +8,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile
   end
-  
 
   def phone
     @user = User.new(sign_up_params)
@@ -47,7 +46,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # エラーメッセージの表示は保留
   def create
-    binding.pry
     session[:address_attributes] = user_params[:address_attributes]
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(session[:address_attributes])
