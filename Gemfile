@@ -74,6 +74,10 @@ group :production do
 end
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'devise'
+gem "jquery-rails"
+gem 'active_hash'
+gem 'pry-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'

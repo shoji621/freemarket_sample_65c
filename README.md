@@ -36,12 +36,9 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true, default: ""|
 |gender|integer||
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|birthday|date|null: false|
 |phone_authy|string|null: false, unique: true, limit: 11|
 |introduction|text||
-|birth_day|integer|null: false|
 |icon_image|string||
 |encrypted_password|string|null: false, default: ""|
 |reset_password_token|string||
@@ -63,7 +60,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|zip_code|string|null: false|
+|zipcode|string|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |block|string|null: false|
@@ -78,7 +75,7 @@ Things you may want to cover:
 ## cardsテーブル(gem 'payjp'を使用)
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|null: false|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 
