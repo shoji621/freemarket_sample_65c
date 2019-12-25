@@ -16,7 +16,7 @@
         .form-group
           = f.text_field :email, placeholder:"メールアドレス"
         .form-group
-          = f.text_field :password, placeholder:"パスワード"
+          = f.password_field :password, placeholder:"パスワード"
         .form-group
         = f.submit "ログイン", class:"login-submit btn-default btn-red"
         %input{name: "login_callback",type: "hidden", value: "/jp/"}/
