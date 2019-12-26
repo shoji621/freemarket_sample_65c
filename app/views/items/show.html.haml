@@ -1,0 +1,37 @@
+!!!
+%div.wrapper
+  %div.user_header
+    =link_to "https://www.mercari.com/jp/" do
+      = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'
+  %div.user_container
+    %div.main_content
+      %div.register_format
+        %h2.signup_title  新規会員登録
+        %div.register_way
+          %div.register_choice
+            =link_to "https://www.mercari.com/jp/signup/registration/" do
+              %div.mail_btn 
+                = icon('far fa-envelope', class: 'let')
+                %div.text_mail メールアドレスで登録する
+              -# -# fontawesomeでメールのアイコンを入れる
+            =link_to "https://www.facebook.com/mercarijp" do  
+              %div.register_fb 
+                = icon('fab fa-facebook-square',class: 'fb')
+                %div.text_fb Facebookで登録する
+              -# fontawesomeでfbのアイコンを入れる
+            =link_to "#" do
+              %div.register_gg
+                = icon('fab fa-google',class: 'gg')
+                %div.text_gg Googleで登録する
+  %div.user_footer
+    %div.navi
+      %ul.caution
+        %li
+          %a{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+        %li
+          %a{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+        %li
+          %a{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+    %a.footer_icon{href: "https://www.mercari.com/jp/"}
+      = image_tag "logo_gray.svg", size: "80x65", class: 'lower-icon' 
+      %p.trademark © Mercari, Inc.
