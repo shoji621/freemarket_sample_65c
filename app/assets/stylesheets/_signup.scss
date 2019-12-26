@@ -1,5 +1,5 @@
 .wrapper{
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: #EEEEEE;
   .user_header{
@@ -111,12 +111,17 @@
       text-align: center;
       margin: 30px auto;
       list-style: none;
-      display: flex;
       width: 406px;
       .caution{
         display: flex;
       }
-      a:hover{
+      .privacy:hover{
+        text-decoration: underline;
+      }
+      .rule:hover{
+        text-decoration: underline;
+      }
+      .trade:hover{
         text-decoration: underline;
       }
       li{
