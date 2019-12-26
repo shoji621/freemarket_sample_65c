@@ -9,11 +9,11 @@
             = icon('far', 'envelope', class:"m-icon")
             %p メールアドレスで登録する
         .button-default.blue
-          = link_to '#', class: "blue" do
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class: "blue" do
             = icon('fab', 'facebook-square', class:"f-icon")
             %p Facebookで登録する
         .button-default.white
-          = link_to '#', class:"g-link" do
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"g-link" do
             = icon('fab', 'google', class:"g-icon")
             %p Googleで登録する
 

@@ -48,6 +48,7 @@ Things you may want to cover:
 #### Association
 - has_one :address, dependent: :destroy
 - has_one :card, dependent: :destroy
+- has_many :sns_credentials
 - has_many :comments
 - has_many :reviews
 - has_many :favorites
@@ -78,6 +79,16 @@ Things you may want to cover:
 |user_id|references|null: false|
 |customer_id|string|null: false|
 |card_id|string|null: false|
+
+#### Association
+- belongs_to :user
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|foreign_key: true|
 
 #### Association
 - belongs_to :user

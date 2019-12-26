@@ -10,11 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def phone
+    params[:sns_auth] ? params[:user][:password] = Devise.friendly_token : "" ;
     @user = User.new(sign_up_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :profile and return
-    end
+      unless @user.valid?
+        flash.now[:alert] = @user.errors.full_messages
+        render :profile and return
+      end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
   end
@@ -63,8 +64,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def complete
   end
   
-
-
   private
   
   def user_params
