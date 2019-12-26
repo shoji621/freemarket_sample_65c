@@ -1,0 +1,80 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-color: #EEEEEE;
+  // ヘッダーの設定
+  .items_header{
+    height: 128px;
+    text-align: center;
+    .header_icon{
+      margin-top: 20px;
+    }
+  }
+  // メインコンテンツの設定
+  .items_container{
+    width: 1440px;
+    height: 208px;
+    .condition_format{
+      width:700px;
+      height: 208px;
+      background-color: white;
+      text-align: center;
+      margin: 0 auto;
+      .items_condition{
+        width: 700px;
+        height: 97px;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 97px;
+        border-bottom-style: solid;
+        border-color: #EEEEEE;
+        border-width: thin;
+      }
+      .return_top{
+        height:111px;
+        background-color: white;
+        position: relative;
+        .single_text{
+          width:320px;
+          margin: 0 auto;
+          position:absolute;
+          left:75px;
+          padding-top:35px;
+          .text:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  // フッターの設定
+  .items_footer{
+    text-align: center;
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    .navi{
+      text-align: center;
+      margin: 30px auto;
+      list-style: none;
+      width: 406px;
+    }
+    .caution{
+      display: flex;
+    }
+    .privacy:hover{
+      text-decoration: underline;
+    }
+    .rule:hover{
+      text-decoration: underline;
+    }
+    .trade:hover{
+      text-decoration: underline;
+    }
+    li{
+      font-size: 13px;
+      color: #333;
+      padding-right: 10px;
+    }
+  }
+}

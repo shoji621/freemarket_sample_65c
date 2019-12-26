@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   end
 
   root  "items#index"
-  resources :items
+  resources :items do
+  collection do
+    get     "confirmation"
+  end
+end
 end
