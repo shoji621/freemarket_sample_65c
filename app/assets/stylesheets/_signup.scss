@@ -1,0 +1,134 @@
+.wrapper{
+  height: 100%;
+  width: 100vw;
+  background-color: #EEEEEE;
+  .user_header{
+    height: 128px;
+    text-align: center;
+    .header_icon{
+      margin-top: 20px;
+    }
+  }
+  // メインの部分の設定
+  .user_container{
+    // 新規会員登録からボタンの部分の設定
+    .register_format{
+      width: 700px;
+      height: 384px;
+      background-color: white;
+      text-align: center;
+      margin: 0 auto;
+      list-style: none;
+    // 新規会員登録に関する設定
+      .signup_title{
+        width: 700px;
+        height: 97px;
+        background-color: white;
+        margin: 0 auto;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom-style: solid;
+        border-color: #EEEEEE;
+        border-width: thin;
+        line-height: 97px;
+      }  
+    
+      // 登録ボタンの部分
+      .register_way{
+        max-width: 343px;
+        margin: 0 auto;
+        padding: 40px 40px 64px;
+
+        // 登録ボタンのロゴの位置調整
+        i{
+          padding-top: 15px;
+          padding-left: 10px;
+          font-size: 1.5em
+        }
+        // メールで登録ボタン
+        // メールボタンを押した際に光るようにしてほしい
+        .mail_btn{
+          display:flex;
+          color: white;
+          background-color: #ea352d;
+          border-radius: 4px;
+          font-size: 14px;
+          width:343px;
+          height: 50px;
+          .text_mail{
+            margin: 0 auto;
+          }
+        }
+        .text_mail{
+          text-align: center;
+          padding-top: 13px;
+        }
+        // FBで登録ボタン
+        .register_fb{
+          display:flex;
+          color: white;
+          background-color: #385185;
+          border-radius: 4px;
+          font-size: 14px;
+          width:343px;
+          height: 50px;
+          margin-top: 16px;
+          .text_fb{
+            margin: 0 auto;
+            padding-top: 13px;
+          }
+        }
+        // googleで登録ボタン
+        .register_gg{
+          display:flex;
+          color: black;
+          border-style: solid;
+          border-color: gray;
+          background-color: white;
+          border-width: 0.15em;
+          border-radius: 4px;
+          font-size: 14px;
+          box-sizing: border-box;
+          width:343px;
+          height: 50px;
+          margin-top: 16px;
+          .text_gg{
+            margin: 0 auto;
+            padding-top: 13px;
+          }
+        }
+      }
+    }
+  }
+  // フッターの設定
+  .user_footer{
+    text-align: center;
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    .navi{
+      text-align: center;
+      margin: 30px auto;
+      list-style: none;
+      width: 406px;
+      .caution{
+        display: flex;
+      }
+      .privacy:hover{
+        text-decoration: underline;
+      }
+      .rule:hover{
+        text-decoration: underline;
+      }
+      .trade:hover{
+        text-decoration: underline;
+      }
+      li{
+        font-size: 13px;
+        color: #333;
+        padding-right: 10px;
+      }
+      }
+  }
+}
