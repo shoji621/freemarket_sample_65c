@@ -16,23 +16,23 @@
         .dateOfbirth
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
 
-      .form-group
-        %label パスワード
-        %span.form-require 必須
-        .dateOfbirth
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        = f.password_field :password, autocomplete: "new-password", id: :user_password, placeholder: "7文字以上の半角英数字"
-        %p.l-single-text-gray
-          ※ 英字と数字の両方を含めて設定してください
-        .field
-          %input#user_passcheck{type: "checkbox"}
-      %h3
-        本人確認
-      %p.l-single-text
-        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .form-group
+          %label パスワード
+          %span.form-require 必須
+          .dateOfbirth
+          = f.password_field :password, autocomplete: "new-password", id: :user_password, placeholder: "7文字以上の半角英数字"
+          %p.l-single-text-gray
+            ※ 英字と数字の両方を含めて設定してください
+          .field
+            %input#user_passcheck{type: "checkbox"}
+        %h3
+          本人確認
+        %p.l-single-text
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
       .form-group
         .sort
           %label お名前(全角)
