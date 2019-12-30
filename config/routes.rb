@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
+    sessions:      "users/sessions",
   }
   devise_scope :user do
-    # post    "sign_in",              to: "devise/sessions#new"
-    # delete  "sign_out",             to: "devise/sessions#destroy"
+    post    "sign_in",              to: "devise/sessions#new"
+    delete  "sign_out",             to: "devise/sessions#destroy"
     get     "index",                to: "users/registrations#index"
     get     "profile",              to: "users/registrations#profile"
     get     "phone",                to: "users/registrations#phone"

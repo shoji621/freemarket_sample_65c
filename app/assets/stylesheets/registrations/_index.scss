@@ -1,12 +1,9 @@
 .wrapper{
-  height: 100%;
-  width: 100vw;
-  background-color: #EEEEEE;
   .user_header{
     height: 128px;
     text-align: center;
     .header_icon{
-      margin-top: 20px;
+      margin-top: 35px;
     }
   }
   // メインの部分の設定
@@ -39,6 +36,9 @@
         max-width: 343px;
         margin: 0 auto;
         padding: 40px 40px 64px;
+        .register_choice .mail_btn:hover {
+          opacity: 0.7;
+        }
 
         // 登録ボタンのロゴの位置調整
         i{
@@ -47,7 +47,6 @@
           font-size: 1.5em
         }
         // メールで登録ボタン
-        // メールボタンを押した際に光るようにしてほしい
         .mail_btn{
           display:flex;
           color: white;
@@ -64,7 +63,7 @@
           text-align: center;
           padding-top: 13px;
         }
-        // FBで登録ボタン
+        // FB登録ボタン
         .register_fb{
           display:flex;
           color: white;
@@ -79,14 +78,14 @@
             padding-top: 13px;
           }
         }
-        // googleで登録ボタン
+        // google登録ボタン
         .register_gg{
           display:flex;
           color: black;
           border-style: solid;
           border-color: gray;
           background-color: white;
-          border-width: 0.15em;
+          border-width: 0.1em;
           border-radius: 4px;
           font-size: 14px;
           box-sizing: border-box;
