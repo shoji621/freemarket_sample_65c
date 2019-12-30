@@ -18,12 +18,12 @@ class User < ApplicationRecord
   validates :password             ,presence: true, length: { minimum: 7, maximum: 128}
   validates :last_name            ,format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角で入力してください'}
   validates :first_name           ,format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角で入力してください'}
-  validates :last_name_kana       ,format: { with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力して下さい。'}
-  validates :first_name_kana      ,format: { with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :last_name_kana       ,format: { with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力してください'}
+  validates :first_name_kana      ,format: { with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力してください'}
   validates :birthday             ,presence: true
 
   # phone入力項目
-  validates :phone_authy          ,format: { with: /\d{11}+\z/, message: 'は11桁の半角数字(ハイフンなし)で入力して下さい。'}, on: :validates_phone
+  validates :phone_authy          ,format: { with: /\d{11}+\z/, message: 'は11桁の半角数字(ハイフンなし)で入力してください'}, on: :validates_phone
 
 
   def self.from_omniauth(auth)

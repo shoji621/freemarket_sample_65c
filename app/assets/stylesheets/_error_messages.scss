@@ -1,0 +1,27 @@
+.help-block {
+  color: #EA352D;
+}
+
+.has-error {
+  textarea, input, input[type], .uneditable-input, select {
+    box-shadow: none;
+    border: 1px solid #EA352D;
+  }
+  // selectタグにはidが含まれているため別途記述
+  #user_birthday_1i, #user_birthday_2i, #user_birthday_3i, #user_address_attributes_prefecture_id {
+    box-shadow: none;
+    border: 1px solid #EA352D;
+  }
+}
+
+.dateOfbirth.halffix {
+  display: inline-flex;
+}
+
+.has-error.halffix {
+  width: calc(50% - 6px);
+}
+.has-error.halffix:first-child {
+  margin-right: 8px;
+}
+

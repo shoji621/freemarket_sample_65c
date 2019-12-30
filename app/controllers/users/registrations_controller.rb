@@ -2,7 +2,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only:  [:phone]
   before_action :set_user, except: [:phone,:validates_phone, :create]
   before_action :validates_phone, only: :phone_authen # phoneのバリデーション
- 
+
+  layout "registrations"
+
   def index
   end
 
