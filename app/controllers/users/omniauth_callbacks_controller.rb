@@ -1,4 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+  layout "registrations"
+
   def facebook
     authorization
   end
