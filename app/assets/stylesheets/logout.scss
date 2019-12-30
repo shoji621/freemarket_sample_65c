@@ -1,0 +1,62 @@
+.sub_header{
+  width:1440px;
+  height:49px;
+  border-bottom-style: solid;
+  border-width: thin;
+  background-color: white;
+
+  .link_others{
+    display:flex;
+    width:1020px;
+    height:48px;
+    margin: 0 auto;
+    padding: 16px;
+    .link_top{
+      padding-right: 5px;
+      font-size: 14px;
+      font-style: bold;
+    }
+    .link_mypage{
+      padding-left:5px;
+      padding-right: 5px;
+      font-size: 14px;
+      font-style: bold;
+    }
+    .logout_page{
+      padding-left: 5px;
+      font-size: 14px;
+      font-style: bold;
+    }
+  }
+}
+.logout_frame{
+  width: 1020px;
+  height: 1292px;
+  .logout_form{
+    width: 700px;
+    height: 179px;
+    background-color: white;
+    .logout_inner{
+      height: 50px;
+      width: 320px;
+      margin: 0 auto;
+      .logout_content{
+        position:relative;
+        .logout_btn{
+          width: 320px;
+          height: 50px;
+          background-color: red;
+          font-size: 16px;
+          position: absolute;
+          top: 55px;
+          text-align: center;
+          line-height: 50px;
+          .white {
+            color: #fff;
+          }
+
+        }
+      }
+    }
+  }
+}
