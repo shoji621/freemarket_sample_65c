@@ -23,9 +23,10 @@ Rails.application.routes.draw do
     get     "confirmation"
     end
   end
-  resources :users do
+  resources :users, only: [:index, :edit, :update] do
   collection do
     get     "logout"
+    get     "introduction"
     end
   end
 
