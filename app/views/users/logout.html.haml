@@ -1,0 +1,31 @@
+
+%logout_header
+  = render 'items/mercari_header'
+  .sub_header
+    %ul.link_others
+      %li.link_top
+        =link_to "https://www.mercari.com/jp/" do
+          メルカリ
+      .right_arrow
+        = icon('fas fa-chevron-right', class: 'arrow')
+      %li.link_mypage
+        =link_to "https://www.mercari.com/jp/mypage/" do
+          マイページ
+      .right_arrow
+        = icon('fas fa-chevron-right', class: 'arrow')
+      %li.logout_page ログアウト
+
+%logout_middle
+  .logout_frame
+    =render 'mypage_sidebar'
+    .logout_form
+      .logout_inner
+        .logout_content
+          .logout_btn 
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"white"
+    
+  
+  =render 'items/sell-btn_icon'
+
+%logout_footer
+  = render 'items/mercari_footer'

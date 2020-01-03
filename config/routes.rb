@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   resources :items do
   collection do
     get     "confirmation"
+    end
   end
-end
+  resources :users do
+  collection do
+    get     "logout"
+    end
+  end
+
 end
