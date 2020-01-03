@@ -5,6 +5,15 @@
     %meta{:charset => "UTF-8"}/
     %title HTMLメルカリコンテンツ
   %body
+    .contents
+    .main-contents
+      .slide_container
+        %ul.slider
+          %li
+            = image_tag "merry.jpg", size: "1440x400", class:'slide-image'
+          %li
+            = image_tag "forest.jpg", size: "1440x400", class:'slide-image'
+
     .popu-bar
       .popu-box
         %h1.category 人気のカテゴリー

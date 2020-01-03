@@ -26,12 +26,15 @@
       
 %logout_middle
   .logout_frame
+    =render 'mypage_sidebar'
     .logout_form
       .logout_inner
         .logout_content
           .logout_btn 
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"white"
+    
   
-  -# = render 'side_bar'  
+  =render 'items/sell-btn_icon'
+
 %logout_footer
   = render 'items/mercari_footer'

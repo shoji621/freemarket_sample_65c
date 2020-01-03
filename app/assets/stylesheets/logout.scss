@@ -1,27 +1,36 @@
+// ヘッダーの下の部分(以下sub_header)全体の設定
 .sub_header{
   width:1440px;
   height:49px;
-  border-bottom-style: solid;
-  border-width: thin;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background-color: white;
-
+// sub_headerの各リンク先に関する設定
   .link_others{
     display:flex;
     width:1020px;
     height:48px;
     margin: 0 auto;
     padding: 16px;
+    // topページへのリンクに関する設定
     .link_top{
       padding-right: 5px;
       font-size: 14px;
       font-style: bold;
     }
+    .link_top:hover{
+      text-decoration: underline;
+    }
+    // マイページへのリンクに関する設定
     .link_mypage{
       padding-left:5px;
       padding-right: 5px;
       font-size: 14px;
       font-style: bold;
     }
+    .link_mypage:hover{
+      text-decoration: underline;
+    }
+    // ログアウトに関する設定
     .logout_page{
       padding-left: 5px;
       font-size: 14px;
@@ -29,9 +38,13 @@
     }
   }
 }
+// ログアウトページに関する設定
 .logout_frame{
   width: 1020px;
-  height: 1292px;
+  height: 1425px;
+  display:flex;
+  margin: 40px 194px;
+  padding: 0 16px;
   .logout_form{
     width: 700px;
     height: 179px;
