@@ -78,7 +78,7 @@
           発送元・お届け先住所変更
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to card_index_path, class: "mypage-list-item" do
           支払い方法
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
@@ -94,6 +94,6 @@
           電話番号の確認
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to logout_users_path, class: "mypage-list-item" do
           ログアウト
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 

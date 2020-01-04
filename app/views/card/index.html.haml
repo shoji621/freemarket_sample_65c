@@ -1,0 +1,61 @@
+.wrapper
+  .header
+    = render 'items/mercari_header'
+
+  .content
+    .mypage_frame
+      =render 'users/mypage_sidebar'
+      .single-container
+        %main.single-main
+          %section.l-single-container
+            %h2.l-single-head.mypage
+              支払い方法
+            - if @card.present?
+              = form_with(url: card_path(@card.id), method: :delete, local: true, id: 'charge-form') do |f|
+                .l-single-inner.mypage
+                  .l-single-content
+                    .form-group__first
+                      .form-group__first__subhead
+                        %h3
+                          = f.label :クレジットカード一覧
+                      %ul.content__credit-cards__list
+                        .content__credit-cards__list__center
+                          %li
+                            %figure
+                              = image_tag "#{@card_src}", width: '26', height: '20', alt: @card_brand, id: "card_image"
+                            .content__credit-cards__list--pay-num
+                              = "**** **** **** " + @card_information.last4
+                            .content__credit-cards__list--pay-num
+                              - exp_month = @card_information.exp_month.to_s
+                              - exp_year = @card_information.exp_year.to_s.slice(2,3)
+                              = exp_month + " / " + exp_year
+                            %input{type: "hidden", name: "card_id", value: ""}
+                            = f.submit "削除する", {class: "content__credit-cards__list__center__remove"}
+                  .form-group__last.text-right
+                    %p.mypage-buffer
+                      = link_to "https://www.mercari.com/jp/help_center/category/6/", target:"_blank", class: "link_decoration" do
+                        支払い方法について
+                        = icon('fa', 'chevron-right', class:'rightIcon')
+            - else
+              .l-single-inner.mypage
+                .l-single-content
+                  .form-group__first
+                    .form-group__first__subhead
+                      %h3
+                        %label クレジットカード一覧
+                    %ul.content__credit-cards__list
+                      .content__credit-cards__list__center
+                        = link_to new_card_path, method: :get , class:"btn-mypage btn-default btn-red" do
+                          = icon('fa', 'credit-card', class:'creditcardIcon')
+                          クレジットカードを追加する
+
+                  .form-group__last.text-right
+                    %p.mypage-buffer
+                      = link_to "https://www.mercari.com/jp/help_center/category/6/", target:"_blank", class: "link_decoration" do
+                        支払い方法について
+                        = icon('fa', 'chevron-right', class:'rightIcon')
+
+    =render 'items/sell-btn_icon'
+  .footer
+    = render 'items/mercari_footer'
+

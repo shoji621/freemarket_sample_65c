@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  require "payjp"
   before_action :configure_sign_up_params, only:  [:phone]
   before_action :set_user, except: [:phone,:validates_phone, :create]
   before_action :validates_phone, only: :phone_authen # phoneのバリデーション
@@ -39,30 +40,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end 
 
   def address
-    @address = Address.new(session[:address_attributes])
+    @address = Address.new
   end
 
-  # 新規登録時のクレカと登録未実装の為
-  # def card
-  #   session[:address_attributes] = user_params[:address_attributes]
-  # end
-
-  # エラーメッセージの表示は保留
-  def create
-    session[:address_attributes] = user_params[:address_attributes]
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(session[:address_attributes])
+  def creditcard
+    @address = Address.new(user_params[:address_attributes])
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       redirect_to address_path and return
     end
-    @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
-    render :complete
+    session[:address_attributes] = user_params[:address_attributes]
   end
 
-  # cardアクション内のsessionを完了画面に変更
+  def create
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    if params['payjp-token'].blank?
+      render :creditcard
+    else
+      @user = User.new(session["devise.regist_data"]["user"])
+      @address = Address.new(session[:address_attributes])
+      @user.build_address(@address.attributes)
+      @user.save
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card.save
+      sign_in(:user, @user)
+      render :complete
+    end 
+  end
+
   def complete
   end
   
@@ -82,15 +88,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :introduction,
       :icon_image,
       :password,
-      address_attributes: [:id,:zipcode,:prefecture_id,:city,:block,:building,:phone]
-      # card_attributes: [:id,:user_id,:customer_id]
+      address_attributes: [:id,:zipcode,:prefecture_id,:city,:block,:building,:phone],
     ) 
   end
 
   def set_user
     @user = User.new
     @user.build_address
-    # @user.build_card
   end
 
   def configure_sign_up_params
