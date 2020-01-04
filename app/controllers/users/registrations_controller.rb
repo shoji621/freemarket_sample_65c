@@ -52,9 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:address_attributes] = user_params[:address_attributes]
   end
 
-  # エラーメッセージの表示は保留
   def create
-    binding.pry
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if params['payjp-token'].blank?
       render :creditcard
