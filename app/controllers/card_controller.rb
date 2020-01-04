@@ -5,7 +5,7 @@ class CardController < ApplicationController
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     card = Card.where(user_id: current_user.id).first
-    redirect_to action: "index" if card.present?
+    render :index if card.present?
   end
 
   def index #CardのデータをPayjpに送って情報を取り出す
@@ -36,7 +36,7 @@ class CardController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      render :new
     else
       # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録します。
       customer = Payjp::Customer.create(
@@ -47,9 +47,9 @@ class CardController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "index"
+        redirect_to card_index_path
       else
-        redirect_to action: "create"
+        render :new
       end
     end
   end
@@ -59,9 +59,9 @@ class CardController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy #削除に成功した時にポップアップを表示します。
-      redirect_to action: "index", notice: "削除しました"
+      redirect_to card_index_path, notice: "削除しました"
     else #削除に失敗した時にアラートを表示します。
-      redirect_to action: "index", alert: "削除できませんでした"
+      redirect_to card_index_path, alert: "削除できませんでした"
     end
   end
 
