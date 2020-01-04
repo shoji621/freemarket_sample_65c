@@ -29,11 +29,11 @@
     %section.l-single-container
       %h2.l-single-head.registration
         支払い方法
-      = form_for(@user, url: complete_path, method: :post) do |f|
+      = form_for(@user, url: complete_path, controller: :Registrations, action: :create, method: :post) do |f|
         .l-single-inner.registration-form
           .l-single-content
             .form-group__first
-              %label{for: "payment_card_no"} カード番号
+              %label カード番号
               %span.form-require 必須
               .dateOfbirth
               %input#payment_card_no.input-default{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
@@ -54,7 +54,7 @@
                 %li
                   %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804", width: "32"}/
             .form-group.signup-form-expire
-              %label{for: "payment_card_expire"} 有効期限
+              %label 有効期限
               %span.form-require 必須
               .dateOfbirth
               .select-wrap.half
@@ -91,7 +91,7 @@
               %ul#expire-mm-error-wrapper.has-error-text
               %ul#expire-yy-error-wrapper.has-error-text
             .form-group
-              %label{for: "payment_card_security_code"} セキュリティコード
+              %label セキュリティコード
               %span.form-require 必須
               .dateOfbirth
               %input#payment_card_security_code.input-default{placeholder: "カード背面4桁もしくは3桁の番号", type: "number",value: ""}
@@ -105,4 +105,4 @@
             %input#encrypted_card_data{name: "encrypted_card_data",type: "hidden"}/
             %p#primary-error.has-error-text
             %input{name: "after_save_callback", type: "hidden", value: ""}/
-            = f.submit "次へ", class:"#submit-button btn-default btn-red"
+            = f.submit "次へ", class:"btn-mypage btn-default btn-red", id: 'token_submit'

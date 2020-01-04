@@ -1,0 +1,66 @@
+.wrapper
+  .header
+    = render 'items/mercari_header'
+
+  .content
+    .mypage_frame
+      =render 'users/mypage_sidebar'
+      .single-container
+        %main.single-main
+          %section.l-single-container
+            %h2.l-single-head.registration
+              支払い方法
+            = form_with(url: card_index_path, method: :post, html: { name: "inputForm" }) do |f|
+              .l-single-inner.registration-form
+                .l-single-content
+                  .form-group__first
+                    = f.label :カード番号
+                    %span.form-require 必須
+                    .dateOfbirth
+                    = f.text_field :card_number, type: 'text', class: 'input-default', placeholder: '半角数字のみ', maxlength: "16"
+                    %ul#card-no-error-wrapper.has-error-text
+                    %ul.signup-card-list
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2561606804", width: "49"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2561606804", width: "34"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2561606804", width: "30"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2561606804", width: "32"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2561606804", width: "21"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2561606804", width: "32"}/
+                      %li
+                        %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2561606804", width: "32"}/
+                  .form-group.signup-form-expire
+                    = f.label :有効期限
+                    %span.form-require 必須
+                    .dateOfbirth
+                    .select-wrap.half
+                      = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'select-default'
+                      %i.icon-arrow-bottom
+                      %span 月
+                    .select-wrap.half
+                      = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'select-default'
+                      %i.icon-arrow-bottom
+                      %span 年
+                    %ul#expire-mm-error-wrapper.has-error-text
+                    %ul#expire-yy-error-wrapper.has-error-text
+                  .form-group
+                    = f.label :セキュリティコード
+                    %span.form-require 必須
+                    .dateOfbirth
+                    = f.text_field :cvc, type: 'text', class: 'input-default', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+                    %ul#security-code-error-wrapper.has-error-text
+                  .form-group__last.text-right
+                    %p
+                      = link_to root_path, target:"_blank", class: "link_decoration" do
+                        = icon('fas', 'question-circle', class:'rightIcon')
+                        カード裏面の番号とは？
+                #card_token
+                  = f.submit "追加する", class:" btn-default btn-red", id: 'token_submit'
+    =render 'items/sell-btn_icon'
+  .footer
+    = render 'items/mercari_footer'

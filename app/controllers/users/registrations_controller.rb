@@ -42,11 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new(session[:address_attributes])
   end
 
-  # 新規登録時のクレカと登録未実装の為
-  # def card
-  #   session[:address_attributes] = user_params[:address_attributes]
-  # end
-
   # エラーメッセージの表示は保留
   def create
     session[:address_attributes] = user_params[:address_attributes]
@@ -60,6 +55,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     sign_in(:user, @user)
     render :complete
+  end
+
+    # 新規登録時のクレカと登録未実装の為
+  def creditcard
+    
+    session[:address_attributes] = user_params[:address_attributes]
   end
 
   # cardアクション内のsessionを完了画面に変更

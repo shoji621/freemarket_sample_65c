@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
+  has_one :card, dependent: :destroy, inverse_of: :user
   has_many :sns_credentials
 
   has_many :items
-  has_one :card, inverse_of: :user
   
   VALID_EMAIL_REGEX =              /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+$\z/
   # profile入力項目

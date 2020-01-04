@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     get     "phone",                to: "users/registrations#phone"
     get     "phone_authentication", to: "users/registrations#phone_authen"
     get     "address",              to: "users/registrations#address"
-    get     "card",                 to: "users/registrations#card"
+    get     "creditcard",           to: "users/registrations#creditcard"
     get     "complete",             to: "users/registrations#complete"
     post    "complete",             to: "users/registrations#create"
   end
@@ -28,5 +30,7 @@ Rails.application.routes.draw do
     get     "logout"
     end
   end
+
+  resources :card, only: [:new, :index, :create, :destroy]
 
 end

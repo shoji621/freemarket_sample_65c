@@ -1,0 +1,122 @@
+.single-main {
+  display: block;
+  background-repeat: no-repeat;
+  .l-single-container {
+    width: 700px;
+    margin: 0 auto;
+    background-color:#fff;
+    .l-single-head.mypage{
+      font-size: 24px;
+      padding: 8px 24px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom-style: solid;
+      border-color: #EEEEEE;
+      border-width: thin;
+    }
+  }
+  .form-group {
+    margin: 20px 0 0;
+    .form-group label {
+      font-weight: 600;
+      display: inline-block;
+      position:float;
+    }
+    &__first {
+      margin: 0;
+      &__subhead {
+        margin: 0 auto;
+        max-width: 320px;
+        font-size: 16px;
+      }
+      figure {
+        margin: 0;
+      }
+      .content__credit-cards__list {
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+        .btn-mypage{
+          margin: 0;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        .content__credit-cards__list__center {
+          position: relative;
+          margin: 0 auto;
+          max-width: 320px;
+          font-size: 16px;
+          &__remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1px 6px;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 3px;
+            border: 1px solid #ea352d;
+            color: #ea352d;
+            cursor: pointer;
+          }  
+        }
+
+      }
+      .signup-card-list {
+        display: flex;
+        margin: 8px 0px 0;
+        font-size: 0;
+        list-style: none;
+        li{
+          margin-right: 8px;
+        }
+      }
+      .creditcardIcon{
+        margin-right: 16px;
+      }  
+    }
+  }
+  .select-default {
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  
+  .signup-form-expire .select-wrap.half {
+    display: inline-block;
+    width: calc(50% - 2px);
+  }
+    .signup-form-expire .select-wrap select {
+      display: inline-block;
+      width: calc(100% - 38px);
+  }
+  .form-group__last.text-right{
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    p.mypage-buffer {
+      margin: 40px 0 0 ;
+    }
+    .link_decoration{
+      color: #0099E8;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+    }
+    .rightIcon{
+      color: #0099E8;
+    }
+  }
+  .l-single-inner.mypage {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 40px 40px 64px;
+  }
+}
