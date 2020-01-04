@@ -1,7 +1,7 @@
 class CardController < ApplicationController
   require "payjp"
-  before_action :set_card
   before_action :authenticate_user!
+  before_action :set_card
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     card = Card.where(user_id: current_user.id).first
