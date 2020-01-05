@@ -16,12 +16,14 @@
 
 .dateOfbirth.halffix {
   display: inline-flex;
+  .input-default:first-child {
+    margin-right: 8px;
+  }
 }
 
 .has-error.halffix {
-  width: calc(50% - 6px);
+  min-width: 167.5px;
 }
 .has-error.halffix:first-child {
   margin-right: 8px;
 }
-

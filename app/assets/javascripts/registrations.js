@@ -20,7 +20,7 @@ function changeInputtype(password, passcheck) {
 
 // バリデーションエラーのメッセージによるビュー崩れの修正
 function varidationMessage() {
-    $("div:has(.half)").addClass("halffix");
+    $("div.sort div:has(.half)").addClass("halffix");
 
     if ($('.has-error.halffix').length){
       $('.input-default.half').removeClass('half');
