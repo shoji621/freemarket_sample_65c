@@ -9,11 +9,9 @@
         プロフィール
       .profile_bottom
         .profile_images
-          -# .prolile_fhoto
-          -#   https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ75a7weC7P6V4bdJGHP4KytwL4jLQCWw3U7myPjQAcy4NmDRgC
           .profile_char
             .profile_icon
-              %img{src:"//static.mercdn.net/thumb/members/262956451.jpg?1568457113", alt:"りんご",width:"60",height:"60"}
+              %img.input_photo{src:"//static.mercdn.net/thumb/members/262956451.jpg?1568457113", alt:"りんご",width:"60",height:"60"}
             %form.nickname_holder{action: "#",method: "post"}
               %input.input_text{type: "text",name: "nickname1",required: "true"}
         .profile_writing
@@ -21,8 +19,8 @@
             %form.nickname_holder{action: "#",method: "post"}
               %textarea.input_sentence{type: "text",name: "sentence",class: "wring_space"}
           .profile_btn
-            .change_btn
-              変更する
+            = link_to "#" do
+              .change_btn 変更する
     = render "items/sell-btn_icon"
 .edit_footer
   = render "items/mercari_footer"

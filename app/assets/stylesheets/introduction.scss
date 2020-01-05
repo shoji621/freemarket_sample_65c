@@ -1,7 +1,9 @@
+// プロフィール編集部分の設定
 .profile_box{
   background-color: white;
   width: 700px;
   height: 568px;
+  // 編集部分のタイトル（プロフィール）の設定
   .profile_upper{
     width: 700px;
     height: 50px;
@@ -10,18 +12,24 @@
     text-align: center;
     line-height: 50px;
   }
+  // 編集部分のタイトル以外の設定
   .profile_bottom{
     height: 362px;
+    // 背景画像の設定
     .profile_images{
       width: 700px;
       height: 156px;
       background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdc7gUDxANS8OiJPC6JcOwt5yaogEyYEmrx1F4AfBO8Ke9pgq4);
+      // アイコンとニックネーム記入欄の設定
       .profile_char{
         display: flex;
         width: 282px;
         height: 156px;
         margin: 0 auto;
         padding: 72px 16px 24px;
+        .input_photo{
+          border-radius: 30px;
+        }
         .input_text{
           width: 186px;
           height: 28px;
@@ -31,6 +39,7 @@
          }
       }
     }
+    // プロフィール記入欄の設定
     .profile_writhing{
       width: 668px;
       height: 282px;
@@ -47,6 +56,7 @@
       border-width: thin;
       padding: 10px;
     }
+    // 変更ボタンの設定
     .change_btn{
       width: 668px;
       height: 50px;
