@@ -11,13 +11,13 @@
         .profile_images
           .profile_char
             .profile_icon
-              %img.input_photo{src:"//static.mercdn.net/thumb/members/262956451.jpg?1568457113", alt:"りんご",width:"60",height:"60"}
+              = image_tag("//static.mercdn.net/thumb/members/262956451.jpg?1568457113", width: "60",height: "60", alt: "りんご", class: "input_photo")
             %form.nickname_holder{action: "#",method: "post"}
               %input.input_text{type: "text",name: "nickname1",required: "true"}
         .profile_writing
           .writing_space
             %form.nickname_holder{action: "#",method: "post"}
-              %textarea.input_sentence{type: "text",name: "sentence",class: "wring_space"}
+              %textarea.input_sentence{type: "text",name: "sentence",placeholder: ""}
           .profile_btn
             = link_to "#" do
               .change_btn 変更する
