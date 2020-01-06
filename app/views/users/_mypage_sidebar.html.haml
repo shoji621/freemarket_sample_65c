@@ -22,15 +22,15 @@
           出品する
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to exhibiting_users_path, class: "mypage-list-item" do
           出品した商品 - 出品中
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to progress_users_path, class: "mypage-list-item" do
           出品した商品 - 取引中
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to completed_users_path, class: "mypage-list-item" do
           出品した商品 - 売却済み
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
