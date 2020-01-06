@@ -1,0 +1,20 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @item.name
+%p
+  %strong Description:
+  = @item.description
+%p
+  %strong images:
+.clearfix
+  - if @item.images.attached?
+    - @item.images.each do |image|
+      .image-box
+        = image_tag image.variant(resize: "150x150")
+        %p
+          = image.filename
+%div
+  = link_to 'Edit', edit_item_path(@item)
+  |
+  \#{link_to 'Back', items_path}
