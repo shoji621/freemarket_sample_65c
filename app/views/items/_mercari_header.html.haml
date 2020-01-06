@@ -21,7 +21,7 @@
         .top-menu__under__user-info
           - if user_signed_in?
             .user-registration
-              .registration-btn ログインしています
+              = link_to "マイページ", users_path, method: :get, class: 'registration-btn'
             .user-sessions
               = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'session-btn'
           - else
