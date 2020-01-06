@@ -1,0 +1,45 @@
+.wrapper-all
+  .header
+    .top-menu
+      .top-menu__upper
+        .left-side
+          = link_to "/" do
+            = image_tag "fmarket_logo_red.svg", size: "139x37"
+        .right-side
+          .header-form
+            サーチフォーム
+      .top-menu__under
+        .top-menu__under__search
+          .top-menu__under__search__category
+            = link_to "/", class:'category-search' do
+              = icon('fas', 'list-ul', class: 'category-link')
+              カテゴリーから探す
+          .top-menu__under__search__brand
+            = link_to "/", class:'brand-search' do
+              = icon('fas', 'tags', class: "brand-link")
+              ブランドから探す
+        .top-menu__under__user-info
+          .user-registration
+            = link_to "新規会員登録", "/", class: 'registration-btn'
+          .user-sessions
+            = link_to "ログイン", "/", class: 'session-btn'
+  .l-container
+    = render 'mypage_sidebar'
+    .l-content
+      %section.mypage-tab-container
+        %h2.mypage-tab-head
+          出品した商品
+        %ul.mypage-tabs 
+          %li.mypage-info
+            出品中
+          %li.mypage-info
+            取引中
+          %li.mypage-info
+            売却済み
+        .tab-content
+          %ul.mypage-item-tab
+            %li.mypage-doing
+              出品中の商品がありません
+          
+  .footer
+    = render 'items/mercari_footer'

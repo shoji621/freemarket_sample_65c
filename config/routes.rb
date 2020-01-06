@@ -27,6 +27,12 @@ Rails.application.routes.draw do
   collection do
     get     "logout"
     get     "introduction"
+    get 'profile'
+    get 'exhibiting'
+    get 'product'
+    get 'progress'
+    get 'completed'
+
     end
   end
 
