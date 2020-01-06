@@ -1,38 +1,238 @@
-
 .wrapper
-  .user_header
-    =link_to "https://www.mercari.com/jp/" do
-      = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'
-  .user_container
-    .main_content
-      .register_format
-        %h2.signup_title  新規会員登録
-        .register_way
-          .register_choice
-            =link_to "https://www.mercari.com/jp/signup/registration/" do
-              .mail_btn 
-                = icon('far fa-envelope', class: 'let')
-                .text_mail メールアドレスで登録する
-            =link_to "https://www.facebook.com/mercarijp" do  
-              .register_fb 
-                = icon('fab fa-facebook-square',class: 'fb')
-                .text_fb Facebookで登録する
-            =link_to "#" do
-              .register_gg
-                = icon('fab fa-google',class: 'gg')
-                .text_gg Googleで登録する
-  .user_footer
-    .navi
-      %ul.caution
-        %li.privacy
-          =link_to "https://www.mercari.com/jp/privacy/"do
-            プライバシーポリシー
-        %li.rule
-          =link_to "https://www.mercari.com/jp/tos/" do
-            メルカリ利用規約
-        %li.trade
-          =link_to "https://www.mercari.com/jp/tokutei/" do
-            特定商取引に関する表記
-    =link_to "https://www.mercari.com/jp/" do     
-      = image_tag "logo_gray.svg", size: "80x65", class: 'lower-icon' 
-      %p.trademark © Mercari, Inc.
+  .header
+    = render "mercari_header"
+
+  .item-page 
+    .item-page-con 
+      .item-details
+        .details-box
+          .item-name ロンシャン 折りたたみバッグ コンパクト トートバッグ ハンドバッグ ナイロン
+          .details
+            .item-imgs
+              = image_tag("ロンシャン1.jpg", width: '300px', alt: "comming soon", class: "imgs-main")
+              .imgs-subs
+                .imgs-sub-box
+                  = image_tag("ロンシャン2.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  = image_tag("ロンシャン3.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  = image_tag("ロンシャン4.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  = image_tag("ロンシャン5.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  = image_tag("ロンシャン6.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  = image_tag("ロンシャン7.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+            %table.item-detail-table{:border => 1}
+              %tr
+                %th 出品者
+                %td
+                  =link_to "メルカリｃ", "#", class: "buyer"
+                  .buyer-icon
+                    .buyer-icon-box
+                      %i.fas.fa-laugh
+                      = link_to "#" do
+                        %span 61
+                    .buyer-icon-box
+                      %i.fas.fa-meh
+                      = link_to "#" do
+                        %span 2
+                    
+                    .buyer-icon-box
+                      %i.fas.fa-frown
+                      = link_to "#" do
+                        %span １
+                    
+              %tr
+                %th カテゴリー
+                %td
+                  =link_to "レディース", "#", class: "item-category-1"
+                  =link_to "＞バッグ", "#", class: "item-category-2"
+                  =link_to "＞トートバッグ", "#", class: "item-category-3"
+
+              %tr
+                %th ブランド
+                %td 
+                  =link_to " Longchamp", "#", class: "brand"
+              %tr
+                %th 商品のサイズ
+                %td L
+              %tr
+                %th 商品の状態
+                %td 目立った傷や汚れなし
+              %tr
+                %th 送料の負担
+                %td 送料込み(出品者負担)
+              %tr
+                %th 配送の方法
+                %td ゆうゆうメルカリ便
+              %tr
+                %th 配送元地域
+                %td
+                  =link_to "東京", "#", class: "erea"
+              %tr
+                %th 発想の目安
+                %td 1~2日で発送
+          .price-box
+            .item-price ¥7,330
+            .price-tax （税込）
+            .item-shipping-fee 送料込み
+          = link_to "購入画面に進む", '#', class: "item-buy-btn"
+          .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          .item-discription ミニマルなシルエットながら、ドキュメントやノートパソコンをすっきりと収納できるトートバッグは、理想のパートナーになってくれるでしょう。持ち手が長めなので、肩から掛けて楽に持つことができます。開閉部にはファスナー付きで、持ち物を安全にキープしてくれます。ペーパーバックサイズに折り畳むことも可能です。 日本の折り紙から着想を得たル・プリアージュバッグ。シンプルか閉じるつ独創的なル・プリアージュは、世界中で愛されるアイテムとなりました。このバッグラインはさまざまなフォルムとサイズで展開し、シーズンごとに数十の色で提案されます。羽根を想起するほど軽やかなル・プリアージュは折り畳むと小さく本のサイズとなりますが、日常的な使用に耐える強度を備えています。
+        .btn-bar
+          .btn-box
+            %button{class: "btn", onclick: "location.href='#'", type: "button"}
+              %i.far.fa-heart.fa-lg{style:"color:lightgrey"}
+              %span.in-button いいね！ 18
+            %button{class: "btn", onclick: "location.href='#'", type: "button"}
+              %i.far.fa-flag.fa-lg
+              %span.in-button 不適切な商品の報告
+          %button{class: "policy-btn", onclick: "location.href='#'", type: "button"}
+            %i.fas.fa-lock.fa-lg
+            %span.in-button あんしん・あんぜんへの取り組み
+  .comment-page
+    .comment-page-con
+      .comment-box
+        .comment-caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment
+        = link_to "コメントする", "#", class: "comment-btn"
+      .nav-item 
+        = link_to "＜前へ", "#", class: "prev"
+        = link_to "次へ＞", "#", class: "next"
+      .social-media-box 
+        .icon-box
+          .icon-sns
+            = link_to "https://www.facebook.com/login.php?skip_api_login=" do
+              .facebook
+                %i.fab.fa-facebook-square
+          .icon-sns
+            = link_to "https://twitter.com/intent/tweet?text=" do
+              .twitter
+                %i.fab.fa-twitter
+          .icon-sns
+            = link_to "https://line.me/ja/" do
+              .line
+                %i.fab.fa-line
+          .icon-sns
+            = link_to "https://www.pinterest.jp/" do
+              .pinterest
+                %i.fab.fa-pinterest.fa-xs
+
+      = link_to "出品者さんその他出品", "#", class: "buyer-items-etc"
+      .buyer-items-etc-box
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+      = link_to "その他出品", "#", class: "item-etc"
+      .items-etc-box
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+        .buyer-items-etc-box-item
+          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
+          .items-box-detaile
+            .items-box-name
+              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
+            .items-box-num
+              .items-box-price
+                ¥29,920 
+              .items-box-font
+                .icon-like
+                  ♡
+                %span.like 13
+    %nav.lower-bar
+      .lower-bar-box
+        %ul.lower-bar-box-cons
+          %li.lower-bar-box-cons-con
+            = link_to root_path, class: "url" do
+              エフマーケット
+          %li.lower-bar-box-cons-con ＞ 未使用  CROLLA  ニット  ビジュークラッチバッグ
+    
+  .footer
+    = render "mercari_footer"
