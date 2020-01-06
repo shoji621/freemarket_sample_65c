@@ -1,0 +1,13 @@
+.single-main {
+  .l-single-inner {
+    border-top: 1px solid #f5f5f5;
+    padding: 40px;
+  }
+  .phone-link {
+    color: #0099E8;
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.7;
+    }
+  }
+}

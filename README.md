@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # DB設計
-<img width="1072" alt="DB設計図 2019-12-20 16 07 23" src="https://user-images.githubusercontent.com/57927432/71236856-54295f80-2343-11ea-8f0a-fdb5befc5be6.png">
+<img width="1032" alt="DB設計図 2019-12-26 15 13 35" src="https://user-images.githubusercontent.com/57927432/71461425-16b94c00-27f3-11ea-9b1c-ae976b114741.png">
 
 ## usersテーブル
 |Column|Type|Options|
@@ -36,12 +36,9 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true, default: ""|
 |gender|integer||
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|birthday|date|null: false|
 |phone_authy|string|null: false, unique: true, limit: 11|
 |introduction|text||
-|birth_day|integer|null: false|
 |icon_image|string||
 |encrypted_password|string|null: false, default: ""|
 |reset_password_token|string||
@@ -51,6 +48,7 @@ Things you may want to cover:
 #### Association
 - has_one :address, dependent: :destroy
 - has_one :card, dependent: :destroy
+- has_many :sns_credentials
 - has_many :comments
 - has_many :reviews
 - has_many :favorites
@@ -63,7 +61,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|zip_code|string|null: false|
+|zipcode|string|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |block|string|null: false|
@@ -81,6 +79,16 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
+
+#### Association
+- belongs_to :user
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|foreign_key: true|
 
 #### Association
 - belongs_to :user

@@ -1,0 +1,53 @@
+.single-container
+  .user_header
+    %h1
+      = link_to image_tag("fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'), root_path
+      %nav.progress
+        %ul.progress-bar
+          %li.through
+            会員情報
+            .progress-status#active
+            .progress-status_bar#active
+          %li.active
+            電話番号認証
+            .progress-status#active
+            .progress-status_bar#active
+          %li.address
+            お届け先住所入力
+            .progress-status#active
+            .progress-status_bar#active
+          %li.payment
+            支払い方法
+            .progress-status#active
+            .progress-status_bar#active
+          %li.end#red
+            完了
+            .progress-status#active
+            .progress-status_bar#active
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration
+        会員登録完了
+      .l-single-inner.registration-form
+        .l-single-content
+          .form-group__first
+            %p.l-single-text-center ありがとうございます。
+            %p.l-single-text-center 会員登録が完了しました。
+            = link_to 'メルカリをはじめる', root_path, method: :get, class:"btn-default btn-red"
+
+  %aside.app-banner
+    .app-banner__pc
+      .app-banner__pc__inner
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード！
+        .app-banner__pc__inner__icon.clearfix
+          .merucari
+            = image_tag 'logo_red.svg'
+          %ul.icon
+            %li
+              = link_to image_tag('app-store.svg',alt: "/")
+            %li
+              = link_to image_tag('google-play.svg',alt: "/")
+        %li.figure
+          = link_to image_tag('download_app_pc.png',alt: "/")

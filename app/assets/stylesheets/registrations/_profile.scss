@@ -1,0 +1,208 @@
+
+.progress {
+  padding: 30px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  &-bar {
+    li {
+      margin: 0 40px 0 0;
+      padding: 0;
+      position: relative;
+      z-index: 40;
+      display: inline-block;
+      min-width: 60px;
+      font-size: 12px;
+      color: #888;
+      .progress-status {
+        position: absolute;
+        left: 40%;
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        z-index: 30;
+      }
+    }
+  }
+}
+.progress-status_bar {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  bottom: 5px;
+  display: block;
+  width: 130px;
+  height: 2px;
+  background: #ccc;
+  z-index: 10;
+}
+.end .progress-status_bar {
+  width: 0px;
+}
+.payment .progress-status_bar {
+  width: 100px;
+}
+// プログレスバーカラー変更CSS
+#red{
+  color: #ea352d;
+}
+#active{
+  background: #ea352d;
+}
+
+.single-main {
+  display: block;
+  background-repeat: no-repeat;
+  .l-single-container {
+    width: 700px;
+    margin: 0 auto;
+    background-color:#fff;
+    .l-single-head.registration{
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom-style: solid;
+      border-color: #EEEEEE;
+      border-width: thin;
+    }
+  }
+  label{
+    font-weight: bold;
+  }
+  .form-group {
+    margin-top: 32px;
+    &__first {
+      margin: 0;
+    }
+    &__last {
+      margin: 0;
+    }
+  }
+  .form-require {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .input-default {
+    height: 48px;
+    width: 100%;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  .input-default.half:first-of-type {
+    margin-right: 8px;
+  }
+  .input-default.half {
+    width: calc(50% - 6px);
+    display: inline-flex;
+  }
+  .input-default.second {
+    margin: 8px 0 0 0;
+  }
+
+  .l-chapter-sub-head {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  p.l-single-text {
+    margin: 8px 0 0;
+    padding: 0; 
+    &-gray {
+      color: #888;
+    }
+    &-password {
+      margin: -4px 0 8px 0;
+      padding: 0 0 0 8px;
+    }
+    &-center {
+      text-align: center;
+    }
+  }
+
+  .dateOfbirth {
+    margin-top: 5px;
+    .year, .month, .day {
+      width: 76px;
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  }
+  .form-info-text {
+    color: #ccc;
+  }
+  .l-single-inner {
+    max-width: 343px;
+    margin: 0 auto;
+    padding: 40px 40px 64px;
+  }
+  .l-single-content:first-child {
+    margin: 0;
+  }
+  .btn-red {
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    margin: 20px 0 0;
+  }
+  .btn-default {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  .terms_of_use {
+    color: #0099E8;
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.7;
+    }
+  }
+  .checkbox-default {
+    margin: 8px 0 0;
+    display: flex;
+  }
+  .form-group.text-right{
+    margin: 24px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    .link_decoration{
+      color: #0099E8;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+    }
+    .rightIcon{
+      color: #0099E8;
+    }
+  }
+}
