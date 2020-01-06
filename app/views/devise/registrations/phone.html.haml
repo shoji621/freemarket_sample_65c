@@ -1,0 +1,46 @@
+.single-container
+  .user_header
+    %h1
+      = link_to image_tag("fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'), root_path
+      %nav.progress
+        %ul.progress-bar
+          %li.through
+            会員情報
+            .progress-status#active
+            .progress-status_bar#active
+          %li.active#red
+            電話番号認証
+            .progress-status#active
+            .progress-status_bar
+          %li.address
+            お届け先住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment
+            支払い方法
+            .progress-status
+            .progress-status_bar
+          %li.end
+            完了
+            .progress-status
+            .progress-status_bar
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration
+        電話番号の確認
+      = form_for(@user, url: phone_authentication_path, method: :get) do |f|
+        .l-single-inner.registration-form
+          .l-single-content
+            .form-group__first
+              %label{for: "phone_number"} 携帯電話の番号
+              .dateOfbirth
+              = f.text_field :phone_authy, placeholder: "携帯電話の番号を入力", type:"tel", value:"", class:"input-default"
+            %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            = f.submit "SMSを送信する", class:"btn-default btn-red"
+            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+            .form-group.text-right
+              %p
+                = link_to "https://www.mercari.com/jp/help_center/", target:"_blank", class:"link_decoration" do
+                  電話番号の確認が必要な理由
+                  = icon('fa', 'chevron-right', class:'rightIcon')

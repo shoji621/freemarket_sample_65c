@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
-  private
+private
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :nickname, :gender, :birthday, :phone_authy, :introduction, :icon_image])
+  end
 
   def production?
     Rails.env.production?
