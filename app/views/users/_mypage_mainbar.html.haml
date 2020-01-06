@@ -1,0 +1,71 @@
+.l-content
+  %section.mypage-user-icon
+    =link_to "/", class: "l-content-icon" do
+      %figure
+      = image_tag "member-noimage.jpg", size: "60x60", class: "user-icon"
+      .mypage-user-name
+        ユーザーさん
+      .mypage-user-evaluation
+        評価数 0
+        出品数 0
+  %section
+    %ul.mypage-tabs 
+      %li.mypage-info.active
+        お知らせ
+      %li.mypage-info
+        やることリスト
+    .tab-content
+      %ul.mypage-item-tab.show
+        %li.mypage-item-list
+          = image_tag 'logo_red.svg', size: "40x40"
+          .mypage-item-link
+            事務局から個別メッセージ「インタビュー調査ご協力のお願い」
+            .mypage-item-link-time
+              = icon('fas fa-clock', class: "fa-clock")
+              3日前
+        %li.mypage-item-list
+          = image_tag 'logo_red.svg', size: "40x40"
+          .mypage-item-link
+            事務局から個別メッセージ「インタビュー調査ご協力のお願い」
+            .mypage-item-link-time
+              = icon('fas fa-clock', class: "fa-clock")
+              3日前
+        %li.mypage-item-list
+          = image_tag 'logo_red.svg', size: "40x40"
+          .mypage-item-link
+            事務局から個別メッセージ「インタビュー調査ご協力のお願い」
+            .mypage-item-link-time
+              = icon('fas fa-clock', class: "fa-clock")
+              3日前
+        %li.mypage-item-list
+          = image_tag 'logo_red.svg', size: "40x40"
+          .mypage-item-link
+            事務局から個別メッセージ「インタビュー調査ご協力のお願い」
+            .mypage-item-link-time
+              = icon('fas fa-clock', class: "fa-clock")
+              3日前
+        %li
+          = link_to "/", class: "mypage-go-link" do
+            .mypage-go-list
+              一覧をみる
+      %ul.mypage-item-tab.show
+        %li.mypage-item-list
+          .mypage-item-list-doing
+            現在、やることはありません
+        
+  %section.mypage-tab-container
+    %h2.mypage-tab-head
+      購入した商品
+    %ul.mypage-tabs 
+      %li.mypage-info.active
+        取引中
+      %li.mypage-info
+        過去の取引
+    .tab-content
+      %ul.mypage-item-tab.show
+        %li.mypage-doing
+          取引中の商品がありません
+      %ul.mypage-item-tab
+        %li.mypage-doing
+          過去に取引した商品がありません
+      

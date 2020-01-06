@@ -1,0 +1,114 @@
+.l-content {
+  width: 700px;
+  list-style: none;
+}
+
+.mypage-user-icon {
+  height: 200px;
+  color: #333;
+  font-size: 14px;
+  position: relative;
+  background-image: url(mount.jpg);
+  background-size: 700px 200px;
+
+
+  .l-content-icon { 
+    width: 100%;
+    margin-top: 50px;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+
+    .mypage-user-name {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+  }
+
+}
+
+.mypage-tabs {
+  display: flex;
+  
+
+  .mypage-info {
+    line-height: 72px;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #eee;
+  }
+
+  .mypage-info.active {
+    background-color: #fff;
+    cursor: pointer;
+    border-top: 2px solid red;
+  }
+
+}
+
+.tab-content {
+  background-color: #fff;
+  
+  .mypage-item-tab {
+    display: none;
+  }
+  .mypage-item-tab.show {
+    display: block;
+  
+    .mypage-item-list {
+      display: flex;
+      padding: 16px;
+      font-size: 16px;
+      border-bottom: 2px solid whitesmoke;
+      
+      .mypage-item-list-doing {
+        color: #ccc;
+        text-align: center;
+        width: 100%;
+        font-weight: 600;
+        padding: 160px 0 60px;
+        border-bottom: none;
+      }
+      
+      .mypage-item-link-time {
+        font-size: 14px;
+      }
+      
+    }
+
+    .mypage-go-list {
+      text-align: center;
+      display: inline-block;
+      margin: 16px;
+      width: 668px;
+      background-color: #eee;
+      line-height: 50px;
+
+      &:hover {
+        background-color: #ccffff;
+      }
+    }
+  }
+}
+.mypage-tab-container {
+  margin: 40px 0 0;
+  background: #fff;
+  .mypage-tab-head {
+    line-height: 72px;
+    font-weight: bold;
+    padding: 0 16px;
+    background: #fafafa;
+
+  }
+
+  .mypage-doing {
+    color: #ccc;
+    text-align: center;
+    font-weight: 600;
+    padding: 160px 0 60px;
+  }
+
+}
+
