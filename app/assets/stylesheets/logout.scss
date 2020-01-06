@@ -1,14 +1,12 @@
 // ヘッダーの下の部分(以下sub_header)全体の設定
 .sub_header{
-  width:1440px;
-  height:49px;
+  width:100vw;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background-color: white;
 // sub_headerの各リンク先に関する設定
   .link_others{
     display:flex;
     width:1020px;
-    height:48px;
     margin: 0 auto;
     padding: 16px;
     // topページへのリンクに関する設定
@@ -45,7 +43,7 @@
   width: 1020px;
   height: 1425px;
   display:flex;
-  margin: 40px 194px;
+  margin: 40px auto;
   padding: 0 16px;
   .logout_form{
     width: 700px;
