@@ -53,9 +53,6 @@
         margin: 8px 0 0;
         font-size: 14px;
       }
-      &__drop-box {
-        
-      }
     }
     &__name {
       border-bottom-style: solid;
@@ -82,6 +79,15 @@
             font-weight: bold;
           }
         }
+        &__lower {
+          margin-top: 5px;
+          .item_name {
+            width: 600px;
+            height: 30px;
+            font-size: 16px;
+            padding: 10px;
+          }
+        }
       }
       &__description {
         margin: 40px 0 0;
@@ -103,6 +109,17 @@
             font-weight: bold;
           }
         }
+        &__lower {
+          margin-top: 5px;
+          .item_description {
+            width: 600px;
+            height: 120px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+
+          }
+        }
       }
     }
     &__detail {
@@ -116,16 +133,17 @@
         color: #888;
         font-size: 15px;
       }
-      &__box {
+      .listing-form__box {
         padding-left: 145px;
         width: 400px;
-        &__category{
-
-          &__upper {
+        
+          .category__upper{
             display: flex;
+            font-weight: bold;
             margin: 0;
             font-size: 15px;
-            &__require {
+          }
+            .listing-default--require {
               background-color: #ea352d;
               border-radius: 2px;
               color: white;
@@ -137,9 +155,28 @@
               text-align: center;
               font-weight: bold;
             }
-          }
-        }
-        &__condition {
+            .listing-select-wrapper__added {
+              margin-top: 8px;
+            }
+            .listing-select-wrapper__box {
+              position: relative;
+            }
+              .listing-select-wrapper__box--arrow-down {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                font-size: 20px;
+                color: rgb(87, 87, 87);
+              }
+              .listing-select-wrapper__box--select {
+                height: 50px;
+                width: 400px;
+                -webkit-appearance: none;
+                padding: 0 10px;
+                color: rgb(105, 105, 105);
+              }
+
+        .exhibition-form__detail__condition {
           margin: 40px 0 0;
           &__upper {
             display: flex;
@@ -157,6 +194,23 @@
               text-align: center;
               font-weight: bold;
             }
+          }
+          &__lower {
+            position: relative;
+            &__box {
+              height: 50px;
+              width: 400px;
+              -webkit-appearance: none;
+              padding: 0 10px;
+              color: rgb(105, 105, 105);
+            }
+              .condition__box--arrow-down {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                font-size: 20px;
+                color: rgb(87, 87, 87);
+              }
           }
         }
       }
@@ -193,6 +247,23 @@
               font-weight: bold;
             }
           }
+          &__lower {
+            position: relative;
+            &__box {
+              height: 50px;
+              width: 400px;
+              -webkit-appearance: none;
+              padding: 0 10px;
+              color: rgb(105, 105, 105);
+            }
+              .postage__box--arrow-down {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                font-size: 20px;
+                color: rgb(87, 87, 87);
+              }
+          }
         }
         &__area {
           margin: 40px 0 0;
@@ -213,6 +284,23 @@
               font-weight: bold;
             }
           }
+          &__lower {
+            position: relative;
+            &__box {
+              height: 50px;
+              width: 400px;
+              -webkit-appearance: none;
+              padding: 0 10px;
+              color: rgb(105, 105, 105);
+            }
+              .shipping_area__box--arrow-down {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                font-size: 20px;
+                color: rgb(87, 87, 87);
+              }
+          }
         }
         &__day {
           margin: 40px 0 0;
@@ -232,6 +320,23 @@
               text-align: center;
               font-weight: bold;
             }
+          }
+          &__lower {
+            position: relative;
+            &__box {
+              height: 50px;
+              width: 400px;
+              -webkit-appearance: none;
+              padding: 0 10px;
+              color: rgb(105, 105, 105);
+            }
+              .shipping_day__box--arrow-down {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                font-size: 20px;
+                color: rgb(87, 87, 87);
+              }
           }
         }
       }
@@ -256,11 +361,16 @@
           border-bottom-style: solid;
           border-width: 1px;
           border-color: rgb(150, 150, 150);
+          height: 50px;
           &__left {
             display: flex;
             margin: 0;
             font-size: 15px;
+            line-height: 50px;
             &__require {
+              align-items: center;
+              margin-top: 15px;
+              &__text {
               background-color: #ea352d;
               border-radius: 2px;
               color: white;
@@ -271,18 +381,45 @@
               width: 30px;
               text-align: center;
               font-weight: bold;
+              line-height: 20px;
+            }
+          }
+        }
+          &__right {
+            display: flex;
+            margin-left: 130px;
+            height: 50px;
+            &__icon {
+              margin-top: 20px;
+              margin-right: 10px;
+              font-weight: 200;
+              font-size: 15px;
+            }
+            &__form {
+             height: 50px;
+             text-align: right;
+             padding-right: 10px;
             }
           }
         }
         &__postage {
           display: flex;
-          padding: 0 0 24px;
+          justify-content: space-between;
+          padding: 20px 0;
           border-bottom-style: solid;
           border-width: 1px;
           border-color: rgb(150, 150, 150);
+          &__message {
+            font-weight: 200;
+          }
         }
         &__profit {
           display: flex;
+          justify-content: space-between;
+          padding-top: 20px;
+          &__price {
+            font-size: 30px;
+          }
         }
       }
     }
