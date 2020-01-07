@@ -1,6 +1,11 @@
 .wrapper
   .header
     = render "mercari_header"
+    .sub_header
+      %ul.link_others
+        %li.link_top
+          - breadcrumb :items
+          = render "layouts/breadcrumbs"
 
   .item-page 
     .item-page-con 
