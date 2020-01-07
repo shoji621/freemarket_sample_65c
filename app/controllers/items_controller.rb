@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show]
+  before_action :set_item, only: [:edit, :update, :destroy, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -30,8 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path(item.id)
     else
       flash.now[:alert] = @item.errors.full_messages
@@ -40,8 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy    
-    item = Item.find(params[:id])
-    if item.destroy
+    if @item.destroy
       redirect_to root_path
     else
     flash.now[:alert] = '削除できませんでした。'
