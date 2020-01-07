@@ -8,28 +8,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    # #セレクトボックスの初期値設定
-    # @category_parent_array = ["---"]
-    # #データベースから、親カテゴリーのみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-    #     @category_parent_array << parent.name
-    # end
-    # @categories = Category.where(ancestry: nil)
     #セレクトボックスの初期値設定
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.unshift("---")
     # データベースから、親カテゴリーのみ抽出し、配列化
   end
 
-  # def create
-  #   binding.pry
-  #   @item = Item.new(item_params)
-  #   if @item.save
-  #      redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
   def create
     # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
     @category_id = Category.find_by(name: params[:item][:category_id]).id
