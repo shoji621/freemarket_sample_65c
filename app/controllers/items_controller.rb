@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
   #   end
   # end
   def create
-    binding.pry
     # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
     @category_id = Category.find_by(name: params[:item][:category_id]).id
     @item = Item.new(item_params.merge(category_id: @category_id))
