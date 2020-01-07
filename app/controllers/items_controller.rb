@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, only: [:edit, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -26,17 +26,29 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    if @item.update(item_params)
-      redirect_to root_path
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to item_path(item.id)
     else
+      flash.now[:alert] = @item.errors.full_messages
       render :edit
     end
   end
 
-  def destroy
-    @item.destroy
-    redirect_to root_path
+  def destroy    
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+    else
+    flash.now[:alert] = '削除できませんでした。'
+    end
+  end
+
+  def show
   end
 
   # 親カテゴリーが選択された後に動くアクション
