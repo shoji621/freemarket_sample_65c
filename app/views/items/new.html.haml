@@ -65,7 +65,7 @@
                   .listing-default--require 必須
                 .listing-select-wrapper
                   .listing-select-wrapper__box
-                    = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
               .exhibition-form__detail__condition
                 .exhibition-form__detail__condition__upper
@@ -87,8 +87,8 @@
                   .exhibition-form__deli__box__burden__upper__require
                     必須
                 .exhibition-form__deli__box__burden__lower
-                  = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {include_blank: "---"}, {class:'exhibition-form__deli__box__burden__lower__box'}
-                  %i.fas.fa-chevron-down.shipping_method__box--arrow-down
+                  = f.collection_select :postage_id, Postage.all, :id, :name, {include_blank: "---"}, {class:'exhibition-form__deli__box__burden__lower__box'}
+                  %i.fas.fa-chevron-down.postage__box--arrow-down
               .exhibition-form__deli__box__area
                 .exhibition-form__deli__box__area__upper
                   .exhibition-form__deli__box__area__upper__message

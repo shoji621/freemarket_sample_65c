@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   has_many :items
   has_one :card, inverse_of: :user
+
+  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+  has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
   
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # profile入力項目

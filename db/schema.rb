@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 2020_01_05_050757) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,42 +71,35 @@ ActiveRecord::Schema.define(version: 2020_01_05_050757) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src"
-    t.bigint "item_id"
+    t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
-  end
-
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "text", null: false
     t.integer "price", null: false
-    t.bigint "category_id"
-    t.bigint "brand_id"
+    t.integer "category_id"
     t.integer "condition_id", null: false
     t.integer "postage_id", null: false
-    t.integer "shipping_method_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "shipping_day_id", null: false
-    t.bigint "item_image_id", null: false
-    t.bigint "buyer_id", null: false
-    t.bigint "seller_id", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remenber_created_at"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["item_image_id"], name: "index_items_on_item_image_id"
     t.index ["name"], name: "index_items_on_name"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -132,8 +126,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_050757) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "item_images"
+  add_foreign_key "sns_credentials", "users"
 end

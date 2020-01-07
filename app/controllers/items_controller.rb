@@ -21,13 +21,25 @@ class ItemsController < ApplicationController
     # データベースから、親カテゴリーのみ抽出し、配列化
   end
 
+  # def create
+  #   binding.pry
+  #   @item = Item.new(item_params)
+  #   if @item.save
+  #      redirect_to root_path
+  #   else
+  #     render :new
+  #   end
+  # end
   def create
     binding.pry
-    @item = Item.new(item_params)
+    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
+    @category_id = Category.find_by(name: params[:item][:category_id]).id
+    @item = Item.new(item_params.merge(category_id: @category_id))
     if @item.save
-       redirect_to root_path
+      redirect_to root_path
     else
-      render :new
+      flash.now[:alert] = @item.errors.full_messages
+      redirect_to action: 'new'
     end
   end
 
@@ -58,7 +70,7 @@ class ItemsController < ApplicationController
   
   private
    def item_params
-    params.require(:item).permit(:name, :text, :category, :condition_id, :shipping_method_id, :prefecture_id, :shipping_day_id, :price, images_attributes:  [:src, :_destroy])
+    params.require(:item).permit(:name, :text, :condition_id, :postage_id, :prefecture_id, :shipping_day_id, :price, :buyer_id, images_attributes:  [:src, :_destroy]).merge(seller_id: current_user.id)
    end
 
    def set_item

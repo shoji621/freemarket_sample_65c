@@ -89,26 +89,19 @@ Things you may want to cover:
 |text|string|null: false|
 |price|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true|
 |condition_id|integer|null: false|
 |postage_id|integer|null: false|
-|shipping_method_id|integer|null: false|
 |prefecture_id|integer|null: false|
 |shipping_day_id|integer|null: false|
 |item_image_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
-|encrypted_password|string|null: false, default: ""|
-|reset_password_token|string||
-|reset_password_sent_at|datetime||
-|remember_created_at|datetime||
+|buyer_id|references| foreign_key: true|
+|seller_id|references| foreign_key: true|
 
 #### Association
 - belongs_to :category
 - belongs_to :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
-- belongs_to_active_hash :shipping_method
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_day
 - has_one :review
@@ -168,12 +161,7 @@ Things you may want to cover:
 ## postagesテーブル(gem 'active_hash'を使用)
 |Column|Type|Options|
 |------|----|-------|
-|burden|string|null: false|
-
-## shipping_methodsテーブル(gem 'active_hash'を使用)
-|Column|Type|Options|
-|------|----|-------|
-|method|string|null: false|
+|name|string|null: false|
 
 
 ## prefecturesテーブル(gem 'active_hash'を使用)
@@ -188,10 +176,10 @@ Things you may want to cover:
 |day|string|null: false|
 
 
-## item_imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
+|src|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 #### Association
