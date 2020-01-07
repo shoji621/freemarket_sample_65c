@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # DB設計
-<img width="1062" alt="DB設計図 2019-12-25 13 35 22" src="https://user-images.githubusercontent.com/57927432/71432264-9bd13200-271b-11ea-9dd2-a3a1cf93c545.png">
+<img width="1032" alt="DB設計図 2019-12-26 15 13 35" src="https://user-images.githubusercontent.com/57927432/71461425-16b94c00-27f3-11ea-9b1c-ae976b114741.png">
 
 ## usersテーブル
 |Column|Type|Options|
@@ -48,6 +48,7 @@ Things you may want to cover:
 #### Association
 - has_one :address, dependent: :destroy
 - has_one :card, dependent: :destroy
+- has_many :sns_credentials
 - has_many :comments
 - has_many :reviews
 - has_many :favorites
@@ -75,9 +76,19 @@ Things you may want to cover:
 ## cardsテーブル(gem 'payjp'を使用)
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
+
+#### Association
+- belongs_to :user
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|foreign_key: true|
 
 #### Association
 - belongs_to :user

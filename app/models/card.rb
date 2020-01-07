@@ -1,3 +1,3 @@
 class Card < ApplicationRecord
-  belongs_to :user, inverse_of: :card
+  belongs_to :user, optional: true
 end

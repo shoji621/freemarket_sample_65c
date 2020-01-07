@@ -1,0 +1,127 @@
+.user_container{
+  display: block;
+  .signin_format{
+  width: 456px;
+  background-color: white;
+  text-align: center;
+  margin: 0 auto;
+  list-style: none;
+  }
+  // 登録ボタンの部分
+  .signin_way{
+    max-width: 343px;
+    padding: 40px 64px;
+    // 登録ボタンのロゴの位置調整
+    i {
+      padding-top: 15px;
+      padding-left: 10px;
+      font-size: 1.5em
+    }
+    // 新規会員登録ボタン
+    .signin_mail{
+      display:flex;
+      color: white;
+      background-color: #0099e8;
+      font-size: 14px;
+      width:328px;
+      height: 42px;
+      .text_mail{
+        margin: 0 auto;
+      }
+    }
+    .text_mail{
+      text-align: center;
+      font-size: 14px;
+      padding: 0;
+      line-height: 42px;
+
+    }
+    // FB登録ボタン
+    .signin_fb{
+      display:flex;
+      color: white;
+      background-color: #385185;
+      font-size: 14px;
+      width:328px;
+      height: 50px;
+      .text_fb{
+        margin: 0 auto;
+        padding: 0;
+        line-height: 50px;
+
+      }
+    }
+    // google登録ボタン
+    .signin_gg{
+      display:flex;
+      color: black;
+      border-style: solid;
+      border-color: gray;
+      background-color: white;
+      border-width: 0.1em;
+      font-size: 14px;
+      box-sizing: border-box;
+      width:328px;
+      height: 50px;
+      margin-top: 16px;
+      .text_gg{
+        margin: 0 auto;
+        padding: 0;
+        line-height: 50px;
+      }
+    }
+    .form-group {
+      margin-top: 20px;
+      &__first {
+        margin: 0;
+      }
+    }
+    .input-default {
+      height: 48px;
+      width: 100%;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .btn-red {
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      margin: 20px 0 0;
+    }
+    .btn-default {
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      -webkit-transition: all ease-out .3s;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+    .form-group.text-left{
+      margin: 24px 0 0;
+      display: flex;
+      .link_decoration{
+        color: #0099E8;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+  .signin_way:first-child {
+    border-bottom: 1px solid #eee;
+  }
+  .signin_way:last-child {
+    padding: 24px 64px 32px;
+  }
+
+
+}

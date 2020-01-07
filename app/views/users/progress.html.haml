@@ -1,0 +1,24 @@
+.wrapper-all
+  .header
+    = render "items/mercari_header"
+    = render "items/sub_header"
+  .l-container
+    = render 'mypage_sidebar'
+    .l-content
+      %section.mypage-tab-container
+        %h2.mypage-tab-head
+          =link_to "/" do
+            出品した商品
+        %ul.mypage-tabs 
+          %li.mypage-info
+            出品中
+          %li.mypage-info
+            取引中
+          %li.mypage-info
+            売却済み
+        .tab-content
+          %ul.mypage-item-tab
+            %li.mypage-doing
+              取引中の商品がありません
+  .footer
+    = render 'items/mercari_footer'
