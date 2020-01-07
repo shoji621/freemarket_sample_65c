@@ -84,13 +84,11 @@ ActiveRecord::Schema.define(version: 2020_01_05_050757) do
     t.integer "postage_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "shipping_day_id", null: false
-    t.bigint "buyer_id"
-    t.bigint "seller_id"
+    t.integer "buyer_id"
+    t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["name"], name: "index_items_on_name"
-    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,8 +118,6 @@ ActiveRecord::Schema.define(version: 2020_01_05_050757) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

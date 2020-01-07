@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many_attached :images
   belongs_to :buyer, class_name: "User", optional: true
-  belongs_to :seller, class_name: "User"
+  belongs_to :seller, class_name: "User", optional: true
   validates :name, :text ,presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
 end

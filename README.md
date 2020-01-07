@@ -104,9 +104,9 @@ Things you may want to cover:
 |postage_id|integer|null: false|
 |prefecture_id|integer|null: false|
 |shipping_day_id|integer|null: false|
-|item_image_id|references|null: false, foreign_key: true|
-|buyer_id|references| foreign_key: true|
-|seller_id|references| foreign_key: true|
+|image_id|references|null: false, foreign_key: true|
+|buyer_id|integer| foreign_key: true|
+|seller_id|integer| foreign_key: true|
 
 #### Association
 - belongs_to :category
@@ -116,7 +116,7 @@ Things you may want to cover:
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_day
 - has_one :review
-- has_many :item_images
+- has_many :images
 - has_many :comment
 - has_many :favorites, foreign_key: 'User_id', dependent: :destroy
 - has_many :users, through: :favorites
