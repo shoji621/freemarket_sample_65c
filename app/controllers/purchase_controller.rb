@@ -23,7 +23,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    binding.pry
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
