@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get 'product'
     get 'progress'
     get 'completed'
+  
 
     end
   end
