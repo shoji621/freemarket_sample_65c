@@ -4,17 +4,8 @@
   .sub_header
     %ul.link_others
       %li.link_top
-        =link_to "https://www.mercari.com/jp/" do
-          メルカリ
-      .right_arrow
-        = icon('fas fa-chevron-right', class: 'arrow')
-      %li.link_mypage
-        =link_to "https://www.mercari.com/jp/mypage/" do
-          マイページ
-      .right_arrow
-        = icon('fas fa-chevron-right', class: 'arrow')
-      %li.logout_page ログアウト
-
+        - breadcrumb :logout
+        = render "layouts/breadcrumbs"
 %logout_middle
   .mypage_frame
     =render 'mypage_sidebar'

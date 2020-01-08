@@ -50,8 +50,6 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
@@ -146,6 +144,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -396,6 +396,7 @@ DEPENDENCIES
   faker (~> 2.8)
   fog-aws
   font-awesome-sass
+  gretel
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

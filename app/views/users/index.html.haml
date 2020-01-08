@@ -1,7 +1,12 @@
 .wrapper-all
   .header
     = render "items/mercari_header"
-    = render "items/sub_header"
+    
+    .sub_header
+      %ul.link_others
+        %li.link_top
+          - breadcrumb :introduction
+          = render "layouts/breadcrumbs"
   .l-container
     = render 'mypage_sidebar'
     = render 'mypage_mainbar'

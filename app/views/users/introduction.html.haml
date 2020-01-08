@@ -1,6 +1,10 @@
 .edit_header
   = render "items/mercari_header"
-  = render "items/sub_header"
+  .sub_header
+    %ul.link_others
+      %li.link_top
+        - breadcrumb :introduction
+        = render "layouts/breadcrumbs"
 .edit_middle
   .mypage_frame
     = render "mypage_sidebar"
