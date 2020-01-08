@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :edit, :update] do
   collection do
-    get     "logout"
-    get     "introduction"
+    get 'logout'
+    get 'introduction'
     get 'profile'
     get 'exhibiting'
     get 'product'
@@ -40,5 +40,12 @@ Rails.application.routes.draw do
   end
 
   resources :card, only: [:new, :index, :create, :destroy]
+
+  resources :purchase, only: [:index] do
+  collection do
+    post 'pay',                    to: 'purchase#pay'
+    get 'done',                    to: 'purchase#done'
+    end
+  end
 
 end
