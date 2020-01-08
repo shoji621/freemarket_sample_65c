@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :sns_credentials
 
   has_many :items
+  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item", dependent: :destroy
+  has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item", dependent: :destroy
+  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item", dependent: :destroy
   
   VALID_EMAIL_REGEX =              /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+$\z/
   # profile入力項目

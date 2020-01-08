@@ -1,6 +1,6 @@
 // プロフィール編集部分の設定
 .profile_box{
-  background-color: white;
+  background-color: #fff;
   width: 700px;
   height: 568px;
   // 編集部分のタイトル（プロフィール）の設定
@@ -51,7 +51,7 @@
       margin-left:16px;
       margin-top: 40px;
       border: solid;
-      border-color: gray;
+      border-color: #ccc;
       border-width: thin;
       padding: 10px;
     }
@@ -59,11 +59,11 @@
     .change_btn{
       width: 668px;
       height: 50px;
-      background-color: red;
+      background-color: #EA352D;
       margin: 0 auto;
       text-align: center;
       line-height: 50px;
-      color: white;
+      color: #fff;
       margin-top: 16px;
     }
   }

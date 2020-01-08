@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   root  "items#index"
   resources :items do
   collection do
+    #Ajaxで動くアクションのルートを作成
+    get 'get_category_children', defaults: { format: 'json' }
+    get 'get_category_grandchildren', defaults: { format: 'json' }
     get     "confirmation"
     end
   end

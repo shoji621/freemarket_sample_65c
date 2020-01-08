@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name_kana, null: false
       t.string :first_name_kana, null: false
       t.string :nickname, null: false, unique: true
-      t.string :email, null: false, default: ""
+      t.string :email, null: false, unique: true, default: ""
       t.integer :gender
       t.date :birthday, null: false
       t.string :phone_authy, null: false, unique: true, limit: 11
@@ -44,8 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
+    # add_index :users, :email,                unique: true
+    # add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
