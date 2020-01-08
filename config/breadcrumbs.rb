@@ -27,6 +27,11 @@ crumb :payment do
   parent :mypage
 end
 
+crumb :identify do
+  link "本人情報の登録", edit_user_path
+  parent :mypage
+end
+
 
 
 
