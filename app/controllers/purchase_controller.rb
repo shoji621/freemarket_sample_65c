@@ -3,6 +3,7 @@ class PurchaseController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
   before_action :redirect_to_seller_user
+  before_action :redirect_to_soldout, except: [:done]
   before_action :set_card
 
   layout "registrations"
@@ -56,6 +57,10 @@ class PurchaseController < ApplicationController
 
   def redirect_to_seller_user
     redirect_to root_path  if current_user.id == @item.seller_id
+  end
+  
+  def redirect_to_soldout
+    redirect_to confirmation_items_path  if @item.buyer_id?
   end
 
   def set_card
