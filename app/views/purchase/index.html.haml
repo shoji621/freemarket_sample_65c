@@ -34,5 +34,4 @@
     = current_user.address.building
     = current_user.last_name
     = current_user.first_name
-= form_tag(action: :pay, method: :post) do
-  %button 購入する
+= button_to "購入する",  pay_purchase_index_path(@item), {method: :post, params: @item} 

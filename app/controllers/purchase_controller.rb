@@ -33,7 +33,7 @@ class PurchaseController < ApplicationController
   private
 
   def set_item
-    @item = Item.find_by(params[:format])
+    @item = Item.find(params[:format])
   end
 
   def redirect_to_seller_user
