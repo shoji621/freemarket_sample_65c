@@ -6,7 +6,7 @@ class PurchaseController < ApplicationController
 
   def index
     @image = Image.find_by(item_id: params[:format])
-    @user = User.find_by(id: current_user)
+    @user = current_user
 
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
@@ -37,12 +37,10 @@ class PurchaseController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:format])
+    @item = Item.find_by(params[:format])
   end
 
   def redirect_to_seller_user
-    if current_user.id == @item.seller_id
-      redirect_to root_path
-    end
+    redirect_to root_path  if current_user.id == @item.seller_id
   end
 end
