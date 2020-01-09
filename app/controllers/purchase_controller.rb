@@ -7,8 +7,6 @@ class PurchaseController < ApplicationController
 
   def index
     @image = Image.find_by(item_id: params[:format])
-    @user = current_user
-
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to new_card_path
@@ -44,7 +42,7 @@ class PurchaseController < ApplicationController
 
   def set_card
     #Cardテーブルからpayjpの顧客IDを検索
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
   end
 
 end

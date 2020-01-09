@@ -1,10 +1,7 @@
 %h2 購入を確定しますか？
 
 .buy-product-image
-
 = image_tag @image.src.url, size: "200x200"
-
--# = image_tag @image.src.url, size: "200x200"
 
 .buy-product-name
 = @item.name
@@ -29,13 +26,13 @@
   %h3 配送先
   .user-info-text
     〒
-    = @user.address.zipcode.to_s
+    = current_user.address.zipcode.to_s
     %br
-    = @user.address.prefecture.name
-    = @user.address.city
-    = @user.address.block
-    = @user.address.building
-    = @user.last_name
-    = @user.first_name
+    = current_user.address.prefecture.name
+    = current_user.address.city
+    = current_user.address.block
+    = current_user.address.building
+    = current_user.last_name
+    = current_user.first_name
 = form_tag(action: :pay, method: :post) do
   %button 購入する
