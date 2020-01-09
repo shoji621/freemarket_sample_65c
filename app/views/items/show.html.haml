@@ -1,11 +1,6 @@
 .wrapper
   .header
     = render "mercari_header"
-    .sub_header
-      %ul.link_others
-        %li.link_top
-          - breadcrumb :items
-          = render "layouts/breadcrumbs"
 
   .item-page 
     .item-page-con 
@@ -237,10 +232,10 @@
     %nav.lower-bar
       .lower-bar-box
         %ul.lower-bar-box-cons
-          %li.lower-bar-box-cons-con
-            = link_to root_path, class: "url" do
-              エフマーケット
-          %li.lower-bar-box-cons-con ＞ 未使用  CROLLA  ニット  ビジュークラッチバッグ
+          %ul.link_others
+            %li.link_top
+              - breadcrumb :items
+              = render "layouts/breadcrumbs"
     
   .footer
     = render "mercari_footer"
