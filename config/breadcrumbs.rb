@@ -13,7 +13,7 @@ end
 
 # show.html.hamlの記載を変更後に記述を変更
 crumb :items do 
-  link "商品詳細仮置き", item_path
+  link Item.find(params[:id]).name, item_path
   parent :mypage
 end
 
