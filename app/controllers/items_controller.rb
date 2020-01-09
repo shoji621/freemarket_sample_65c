@@ -50,6 +50,9 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def confirmation
+  end
+
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -69,12 +72,6 @@ class ItemsController < ApplicationController
 
    def set_item
     @item = Item.find(params[:id])
-  end
-
-  def show
-  end
-
-  def confirmation
   end
 
 end

@@ -1,0 +1,10 @@
+%h2 購入が完了しました
+%br/
+= @item.name
+%br/
+¥
+= @item.price
+(送料込み)
+%br/
+= link_to root_path do
+  トップページへ戻る
