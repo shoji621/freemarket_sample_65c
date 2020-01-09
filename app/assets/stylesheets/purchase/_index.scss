@@ -1,0 +1,91 @@
+.buy__content {
+  padding: 32px 16px;
+  border-bottom: 1px solid #f5f5f5;
+  &__inner {
+    max-width: 343px;
+    margin: 0 auto;
+    .buy__form {
+      p {
+        line-height: 1.5;
+      }
+      .buy__price__table {
+        margin: 0 0 50px 0;
+        &-row {
+          border: 0;
+          font-size: 30px;
+          display: flex;
+          justify-content: space-between;
+          &-cell {
+            &-label {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+    .buy__subtitle {
+      display: flex;
+      justify-content: space-between;
+      &--right {
+        color: #0099e8;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.buy-content:first-of-type {
+  margin: 0;
+}
+
+.buy__item {
+  text-align: center;
+  &__box {
+    display: flex;
+    &-image {
+      height: 80px;
+      width: 80px;
+      min-width: 80px;
+    }
+    &__detail {
+      margin-left: 16px;
+      &-name {
+        font-size: 14px;
+        margin: 0;
+        padding: 0 0 8px;
+        line-height: 1.5;
+        text-align: left;
+      }
+      &-price {
+        margin: 0;
+        text-align: left;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.buy__user__info {
+  text-align: left;
+  padding: 32px 0;
+  margin: 0;
+  border-top: 1px solid #f5f5f5;
+  &__text {
+    text-align: left;
+    margin: 8px 0 0;
+  }
+  &__card {
+    margin: 8px 0 0;
+  }
+  &:last-child {
+    padding: 0;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
