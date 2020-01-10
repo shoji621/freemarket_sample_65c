@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = Image.where(item_id: params[:id])
   end
 
   # 親カテゴリーが選択された後に動くアクション
@@ -68,9 +69,6 @@ class ItemsController < ApplicationController
 
    def set_item
     @item = Item.find(params[:id])
-  end
-
-  def show
   end
 
   def confirmation

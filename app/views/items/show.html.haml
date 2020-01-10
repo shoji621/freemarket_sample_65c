@@ -6,23 +6,20 @@
     .item-page-con 
       .item-details
         .details-box
-          .item-name ロンシャン 折りたたみバッグ コンパクト トートバッグ ハンドバッグ ナイロン
+          .item-name= @item.name
           .details
             .item-imgs
-              = image_tag("ロンシャン1.jpg", width: '300px', alt: "comming soon", class: "imgs-main")
+              = image_tag(@images[0].src.to_s, width: '300px', alt: "comming soon", class: "imgs-main")
               .imgs-subs
                 .imgs-sub-box
-                  = image_tag("ロンシャン2.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン3.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン4.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン5.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン6.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン7.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  - @images.each do |image|
+                    = image_tag(image.src.to_s, width: '60px', alt: "comming soon", class: "imgs-sub")
+                  
             %table.item-detail-table{:border => 1}
               %tr
                 %th 出品者
                 %td
-                  =link_to "メルカリｃ", "#", class: "buyer"
+                  =link_to @item.seller.nickname, "#", class: "buyer"
                   .buyer-icon
                     .buyer-icon-box
                       %i.fas.fa-laugh
@@ -41,9 +38,9 @@
               %tr
                 %th カテゴリー
                 %td
-                  =link_to "レディース", "#", class: "item-category-1"
-                  =link_to "＞バッグ", "#", class: "item-category-2"
-                  =link_to "＞トートバッグ", "#", class: "item-category-3"
+                  =link_to @item.category.parent.parent.name, "#", class: "item-category-1"
+                  =link_to @item.category.parent.name, "#", class: "item-category-2"
+                  =link_to @item.category.name, "#", class: "item-category-3"
 
               %tr
                 %th ブランド
@@ -54,27 +51,28 @@
                 %td L
               %tr
                 %th 商品の状態
-                %td 目立った傷や汚れなし
+                %td= @item.condition.name
               %tr
                 %th 送料の負担
-                %td 送料込み(出品者負担)
+                %td= @item.postage.name
               %tr
                 %th 配送の方法
                 %td ゆうゆうメルカリ便
               %tr
                 %th 配送元地域
                 %td
-                  =link_to "東京", "#", class: "erea"
+                  =link_to "#", class: "erea" do
+                    = @item.prefecture.name
               %tr
                 %th 発想の目安
-                %td 1~2日で発送
+                %td= @item.shipping_day.name
           .price-box
-            .item-price ¥7,330
+            .item-price= "¥#{@item.price}"
             .price-tax （税込）
             .item-shipping-fee 送料込み
           = link_to "購入画面に進む", '#', class: "item-buy-btn"
           .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          .item-discription ミニマルなシルエットながら、ドキュメントやノートパソコンをすっきりと収納できるトートバッグは、理想のパートナーになってくれるでしょう。持ち手が長めなので、肩から掛けて楽に持つことができます。開閉部にはファスナー付きで、持ち物を安全にキープしてくれます。ペーパーバックサイズに折り畳むことも可能です。 日本の折り紙から着想を得たル・プリアージュバッグ。シンプルか閉じるつ独創的なル・プリアージュは、世界中で愛されるアイテムとなりました。このバッグラインはさまざまなフォルムとサイズで展開し、シーズンごとに数十の色で提案されます。羽根を想起するほど軽やかなル・プリアージュは折り畳むと小さく本のサイズとなりますが、日常的な使用に耐える強度を備えています。
+          .item-discription= @item.text
         .btn-bar
           .btn-box
             %button{class: "btn", onclick: "location.href='#'", type: "button"}
@@ -114,7 +112,7 @@
               .pinterest
                 %i.fab.fa-pinterest.fa-xs
 
-      = link_to "出品者さんその他出品", "#", class: "buyer-items-etc"
+      = link_to "#{@item.seller.nickname}さんその他出品", "#", class: "buyer-items-etc" 
       .buyer-items-etc-box
         .buyer-items-etc-box-item
           = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
