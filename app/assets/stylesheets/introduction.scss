@@ -22,21 +22,23 @@
       background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdc7gUDxANS8OiJPC6JcOwt5yaogEyYEmrx1F4AfBO8Ke9pgq4);
       // アイコンとニックネーム記入欄の設定
       .profile_char{
-        display: flex;
         width: 282px;
         height: 156px;
         margin: 0 auto;
         padding: 72px 16px 24px;
-        .input_photo{
-          border-radius: 30px;
+        .profile_icon {
+          display: flex;
+          .input_photo{
+            border-radius: 30px;
+          }
+          .input_text{
+            width: 186px;
+            height: 28px;
+            border-radius: 5px;
+            padding: 10px 16px 8px;
+            margin-left: 8px;
+          }
         }
-        .input_text{
-          width: 186px;
-          height: 28px;
-          border-radius: 5px;
-          padding: 10px 16px 8px;
-          margin-left: 8px;
-         }
       }
     }
     // プロフィール記入欄の設定
@@ -55,16 +57,20 @@
       border-width: thin;
       padding: 10px;
     }
+    .profile_btn{
+      position:relative;
     // 変更ボタンの設定
     .change_btn{
       width: 668px;
       height: 50px;
       background-color: #EA352D;
-      margin: 0 auto;
+      position: absolute;
+      left: 15px;
       text-align: center;
       line-height: 50px;
       color: #fff;
       margin-top: 16px;
     }
+   }
   }
 }

@@ -12,19 +12,18 @@
       %h2.profile_upper
         プロフィール
       .profile_bottom
-        .profile_images
-          .profile_char
-            .profile_icon
-              = image_tag("//static.mercdn.net/thumb/members/262956451.jpg?1568457113", width: "60",height: "60", alt: "りんご", class: "input_photo")
-            %form.nickname_holder{action: "#",method: "post"}
-              %input.input_text{type: "text",name: "nickname1",required: "true"}
-        .profile_writing
-          .writing_space
-            %form.nickname_holder{action: "#",method: "post"}
-              %textarea.input_sentence{type: "text",name: "sentence",placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-          .profile_btn
-            = link_to "#" do
-              .change_btn 変更する
+        = form_for(@user) do |f|
+          .profile_images
+            .profile_char
+              .profile_icon
+                = image_tag @user.icon_image, width: "60",height: "60", alt: "りんご", class: "input_photo"
+                = f.text_field :nickname, class: "input_text"
+          .profile_writing
+            .writing_space 
+              = f.text_area :introduction, class: "input_sentence"              
+            .profile_btn
+              = f.submit "変更する" , class: "change_btn"
+
     = render "items/sell-btn_icon"
 .edit_footer
   = render "items/mercari_footer"
