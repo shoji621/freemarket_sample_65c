@@ -1,7 +1,11 @@
 .wrapper
   .header
     = render 'items/mercari_header'
-
+    .sub_header
+      %ul.link_others
+        %li.link_top
+          - breadcrumb :payment
+          = render "layouts/breadcrumbs"
   .content
     .mypage_frame
       =render 'users/mypage_sidebar'

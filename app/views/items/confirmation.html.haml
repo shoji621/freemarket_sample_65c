@@ -1,6 +1,6 @@
 .wrapper
   .items_header
-    =link_to "https://www.mercari.com/jp/" do
+    =link_to root_path do
       = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'
   .items_container
     .condition_format
@@ -8,8 +8,7 @@
         商品はすでに売り切れています
       .return_top
         .single_text
-          =link_to "https://item.mercari.com/jp/m70068440240/" do
-            %p.text 商品画面へ戻る
+          =link_to "商品画面へ戻る", root_path, class: "text"
   .items_footer
     .navi
       %ul.caution
@@ -22,6 +21,6 @@
         %li.trade
           =link_to "https://www.mercari.com/jp/tokutei/" do
             特定商取引に関する表記
-    =link_to "https://www.mercari.com/jp/" do     
+    =link_to root_path do
       = image_tag "logo_gray.svg", size: "80x65", class: 'lower-icon' 
       %p.trademark © Mercari, Inc.

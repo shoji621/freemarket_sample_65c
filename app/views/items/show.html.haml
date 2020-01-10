@@ -70,7 +70,10 @@
             .item-price= "¥#{@item.price}"
             .price-tax （税込）
             .item-shipping-fee 送料込み
-          = link_to "購入画面に進む", '#', class: "item-buy-btn"
+          - if @item.buyer_id?
+            = link_to "売り切れました", confirmation_items_path, class: "item-buy-btn"
+          -else 
+            = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
           .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
           .item-discription= @item.text
         .btn-bar
@@ -227,10 +230,10 @@
     %nav.lower-bar
       .lower-bar-box
         %ul.lower-bar-box-cons
-          %li.lower-bar-box-cons-con
-            = link_to root_path, class: "url" do
-              エフマーケット
-          %li.lower-bar-box-cons-con ＞ 未使用  CROLLA  ニット  ビジュークラッチバッグ
+          %ul.link_others
+            %li.link_top
+              - breadcrumb :items
+              = render "layouts/breadcrumbs"
     
   .footer
     = render "mercari_footer"
