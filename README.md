@@ -109,7 +109,6 @@ Things you may want to cover:
 |seller_id|integer| foreign_key: true|
 
 #### Association
-- belongs_to :category
 - belongs_to :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage

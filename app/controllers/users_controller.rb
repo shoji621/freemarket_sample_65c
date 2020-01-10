@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
   
   def exhibiting
+    @items = Item.where(params[:id])
+    @image = Image.find_by(item_id: params[:id])
   end
 
   def progress
