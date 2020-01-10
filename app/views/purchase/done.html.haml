@@ -1,10 +1,22 @@
-%h2 購入が完了しました
-%br/
-= @item.name
-%br/
-¥
-= @item.price
-(送料込み)
-%br/
-= link_to root_path do
-  トップページへ戻る
+.single-container
+  .user_header
+    %h1
+      = link_to image_tag("fmarket_logo_red.svg", size: "185x49", alt: "mercari", class: 'header_icon'), root_path
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration
+        購入が完了しました
+      %section.buy__content.buy__item
+        .buy__content__inner
+          .buy__item__box
+            .buy__item__box__detail
+              .buy__item__box__detail-name
+                = @item.name
+              %span.buy__item__box__detail-price.bold
+                ¥
+                = @item.price.to_s(:delimited)
+                （税込）送料込み
+      %section.buy__content.buy__item
+        .buy__content__inner
+          =link_to "トップページへ戻る", root_path, class:"btn-default btn-red"
