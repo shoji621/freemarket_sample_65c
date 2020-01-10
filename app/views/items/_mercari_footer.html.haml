@@ -31,10 +31,10 @@
             %a.list5{href: "https://www.merc%ari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン　
           %ul{class: "sns_icons"}
             %li.list
-              = link_to "https://twitter.com/mercari_jp" do
+              = link_to root_path do
                 = icon('fab fa-twitter fa-3x',class: 'icon',)
             %li.list
-              = link_to "https://www.facebook.com/mercarijp" do
+              = link_to root_path do
                 = icon('fab fa-facebook-square  fa-3x',class: 'icon')
               
       .content2
@@ -86,6 +86,6 @@
           %a.us{href: "https://www.mercari.com/"} United States
     .footer__bottom
       .bottom__box
-        %a.logo{href: "https://www.mercari.com/jp/"}
+        =link_to root_path, class: "logo" do
           = image_tag "fmarket_logo_white.svg", size: "100x100", alt: "mercari" 
         %span.trademark © Mercari, Inc.

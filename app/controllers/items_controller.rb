@@ -16,14 +16,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
-    @category_id = Category.find_by(name: params[:item][:category_id]).id
-    @item = Item.new(item_params.merge(category_id: @category_id))
-    if @item.save
-      redirect_to root_path
-    else
-      flash.now[:alert] = @item.errors.full_messages
-      redirect_to action: 'new'
+    unless params[:item][:category_id] == "---"
+    # ブランドはstrでparamsにのってくるので、該当する孫category_idを探す
+      @category_id = Category.find_by(name: params[:item][:category_id]).id
+      @item = Item.new(item_params.merge(category_id: @category_id))
+      if @item.save
+        redirect_to root_path
+      else
+        flash.now[:alert] = @item.errors.full_messages
+        render :new
+      end
     end
   end
 
@@ -48,6 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = Image.where(item_id: params[:id])
   end
 
   def confirmation
