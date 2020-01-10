@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping_day
+  belongs_to :category
   has_one :review
   has_many :comments
   has_many :favorites, foreign_key: 'User_id', dependent: :destroy
