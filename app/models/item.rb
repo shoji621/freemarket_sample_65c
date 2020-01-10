@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   has_many :favorites, foreign_key: 'User_id', dependent: :destroy
   has_many :users, through: :favorites
   has_many :images, dependent: :destroy
-  # belongs_to :buyer, class_name: "User", optional: true
-  # belongs_to :seller, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
+  belongs_to :seller, class_name: "User", optional: true
   validates :name, :text, :condition_id, :price, :category_id, :prefecture_id, :shipping_day_id, presence: true
   validates :price, format: { with: /\A([1-9]\d*,)*[1-9]\d*\z/, message: '半角数字で入力してください'}
   accepts_nested_attributes_for :images, allow_destroy: true
