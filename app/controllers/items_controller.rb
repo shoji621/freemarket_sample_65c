@@ -51,6 +51,8 @@ class ItemsController < ApplicationController
 
   def show
     @images = Image.where(item_id: params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def confirmation

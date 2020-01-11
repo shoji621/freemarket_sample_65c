@@ -90,12 +90,26 @@
   .comment-page
     .comment-page-con
       .comment-box
+        %ul.comments
+          - if @comments.present?
+            - @comments.each do |comment|
+              = render partial: "comment", locals: { comment: comment }
         .comment-caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.comment
-        = link_to "コメントする", "#", class: "comment-btn"
+        -if current_user && @item.buyer_id == nil
+          = form_for [@item, @comment], html: {class: 'comment__form'} do |f|
+            = f.text_area :text, placeholder: "コメント本文", rows: "10", class: :comment__form
+            = f.submit "コメントする", class: :comment__btn, data: { confirm: 'コメントしますか？' }
+
       .nav-item 
-        = link_to "＜前へ", "#", class: "prev"
-        = link_to "次へ＞", "#", class: "next"
+        - if @item.previous.present?
+          = link_to item_path(@item.previous), class: "prev" do
+            = icon('fa', 'chevron-left')
+            = @item.previous.name
+        - if @item.next.present?
+          = link_to item_path(@item.next), class: "next" do
+            = @item.next.name
+            = icon('fa', 'chevron-right')
+
       .social-media-box 
         .icon-box
           .icon-sns
@@ -115,7 +129,7 @@
               .pinterest
                 %i.fab.fa-pinterest.fa-xs
 
-      = link_to "#{@item.seller.nickname}さんその他出品", "#", class: "buyer-items-etc" 
+      = link_to "#{@item.seller.nickname}さんのその他出品", "#", class: "buyer-items-etc" 
       .buyer-items-etc-box
         .buyer-items-etc-box-item
           = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")

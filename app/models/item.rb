@@ -20,4 +20,12 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where('text LIKE(?)', "%#{search}%")
   end
+
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 end

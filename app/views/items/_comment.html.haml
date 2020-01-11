@@ -1,0 +1,12 @@
+%li.comment
+  = link_to '#', class: 'comment__user' do
+    = icon('fas', 'user-circle', class: "comment__user__icon")
+    .comment__user__nickname
+      = comment.user.nickname
+  .comment__body
+    .comment__body__text
+      = simple_format(comment.text)
+    .comment__body__time
+      = icon('far', 'clock', class: 'comment__body__time__icon')
+      %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+      前
