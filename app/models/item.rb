@@ -15,4 +15,9 @@ class Item < ApplicationRecord
   validates :name, :text, :condition_id, :price, :category_id, :prefecture_id, :shipping_day_id, presence: true
   validates :price, format: { with: /\A([1-9]\d*,)*[1-9]\d*\z/, message: '半角数字で入力してください'}
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('text LIKE(?)', "%#{search}%")
+  end
 end
