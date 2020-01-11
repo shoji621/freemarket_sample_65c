@@ -3,31 +3,42 @@
     .top-menu
       .top-menu__upper
         .left-side
-          = link_to "/" do
+          = link_to root_path do
             = image_tag "fmarket_logo_red.svg", size: "139x37"
         .right-side
-          .header-form
-            サーチフォーム
+          = form_with(url: items_searches_path, local: true, method: :get, class: "search-form") do |f|
+            = f.text_field :keyword, placeholder: "何かお探しですか？", class: "search-input"
+            = icon('fas', 'search', class: "search-input__icon")
       .top-menu__under
-        .top-menu__under__search
-          .top-menu__under__search__category
+        %ul.top-menu__under__search
+          %li.top-menu__under__search__category
             = link_to "/", class:'category-search' do
               = icon('fas', 'list-ul', class: 'category-link')
               カテゴリーから探す
-          .top-menu__under__search__brand
+          %li.top-menu__under__search__brand
             = link_to "/", class:'brand-search' do
               = icon('fas', 'tags', class: "brand-link")
               ブランドから探す
-        .top-menu__under__user-info
+        %ul.top-menu__under__user-info
           - if user_signed_in?
-            .user-registration
-              = link_to "マイページ", users_path, method: :get, class: 'registration-btn'
-            .user-sessions
-              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'session-btn'
+            %li.top-menu__under__user-info__menu
+              = link_to "#", class: 'top-menu__under__user-info__menu__link' do
+                = icon('far', 'heart', class: "top-menu__under__user-info__menu__link__icon")
+                いいね！一覧
+            %li.top-menu__under__user-info__menu
+              = link_to users_path, method: :get, class: 'top-menu__under__user-info__menu__link' do
+                = icon('far', 'bell', class: "top-menu__under__user-info__menu__link__icon")
+                お知らせ
+            %li.top-menu__under__user-info__menu
+              = link_to "#", class: 'top-menu__under__user-info__menu__link' do
+                = icon('fas', 'check', class: "top-menu__under__user-info__menu__link__icon")
+                やることリスト
+            %li.top-menu__under__user-info__menu
+              = link_to users_path, method: :get, class: 'top-menu__under__user-info__menu__link' do
+                = icon('fas', 'user-circle', class: "top-menu__under__user-info__menu__link__icon")
+                マイページ
           - else
-            .user-registration
+            %li.top-menu__under__user-info__menu
               = link_to "新規会員登録", index_path, class: 'registration-btn'
-            .user-sessions
+            %li.user-sessions
               = link_to "ログイン", new_user_session_path, class: 'session-btn'
-
-  

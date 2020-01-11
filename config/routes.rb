@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   end
 
   root  "items#index"
+
+  namespace :items do
+    resources :searches, only: :index
+  end
+
   resources :items do
   collection do
     #Ajaxで動くアクションのルートを作成
@@ -26,6 +31,7 @@ Rails.application.routes.draw do
     get     "confirmation"
     end
   end
+
   resources :users, only: [:index, :edit, :update] do
   collection do
     get 'logout'
