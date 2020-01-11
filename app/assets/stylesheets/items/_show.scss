@@ -240,7 +240,7 @@
             display: inline-block;
             color: #333;
             &__icon {
-              font-size: 35px;
+              font-size: 40px;
             }
             &__nickname {
               width: 600px;
@@ -254,6 +254,13 @@
               height: 1.2em;
               white-space: nowrap;
               text-overflow: ellipsis;
+            }
+            &__seller {
+              margin: 8px 0 0;
+              padding: 4px;
+              font-size: 10px;
+              background: #eef0f4;
+              color: #000;
             }
           }
           &__body {

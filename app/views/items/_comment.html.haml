@@ -3,6 +3,8 @@
     = icon('fas', 'user-circle', class: "comment__user__icon")
     .comment__user__nickname
       = comment.user.nickname
+    - if comment.user == @item.seller
+      .comment__user__seller 出品者
   .comment__body
     .comment__body__text
       = simple_format(comment.text)
