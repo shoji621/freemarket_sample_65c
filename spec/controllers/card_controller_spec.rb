@@ -1,9 +1,10 @@
 require 'rails_helper'
-RSpec.describe ItemsController, type: :controller do
+RSpec.describe CardController, type: :controller do
   let(:user) { create(:user) }
   context 'log in' do
     describe 'GET #index' do
       it "renders the :index template" do
+        login user
         get :index
         expect(response).to render_template :index
       end

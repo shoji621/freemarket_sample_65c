@@ -1,64 +1,66 @@
 require 'rails_helper'
 describe Item do
   describe '#create' do
-    it "is valid all data" do
-      item = build(:item)
-      item.valid?
-      expect(item).to be_valid
-    end
-
-    # 2. nameが空では登録できないこと
+    # 1. nameが空では登録できないこと
     it "is invalid without a name" do
-      item = build(:item, name: "")
+      user = create(:user)
+      item = build(:item, name: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:name]).to include("を入力してください")
     end
 
-    # 3. textが空では登録できないこと
+    # 2. textが空では登録できないこと
     it "is invalid without a text" do
-      item = build(:item, text: "")
+      user = create(:user)
+      item = build(:item, text: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:text]).to include("を入力してください")
     end
 
-    # 4. condition_idが空では登録できないこと
+    # 3. condition_idが空では登録できないこと
     it "is invalid without a condition_id" do
-      item = build(:item, condition_id: nil)
+      user = create(:user)
+      item = build(:item, condition_id: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:condition_id]).to include("を入力してください")
     end
 
-    # 5. priceが空では登録できないこと
+    # 4. priceが空では登録できないこと
     it "is invalid without a price" do
-      item = build(:item, price: "")
+      user = create(:user)
+      item = build(:item, price: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:price]).to include("を入力してください")
     end
 
-    # 6. category_idが空では登録できないこと
+    # 5. category_idが空では登録できないこと
     it "is invalid without a category_id" do
-      item = build(:item, category_id: "")
+      user = create(:user)
+      item = build(:item, category_id: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:category_id]).to include("を入力してください")
     end
 
-    # 7. prefecture_idが空では登録できないこと
+    # 6. prefecture_idが空では登録できないこと
     it "is invalid without a prefecture_id" do
-      item = build(:item, prefecture_id: "")
+      user = create(:user)
+      item = build(:item, prefecture_id: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:prefecture_id]).to include("を入力してください")
     end
 
-    # 8. shipping_day_idが空では登録できないこと
+    # 7. shipping_day_idが空では登録できないこと
     it "is invalid without a shipping_day_id" do
-      item = build(:item, shipping_day_id: "")
+      user = create(:user)
+      item = build(:item, shipping_day_id: nil, buyer_id: user.id)
       item.valid?
       expect(item.errors[:shipping_day_id]).to include("を入力してください")
     end
 
-    # 9. priceが半角数字でなければ登録できないこと
+    # 8. priceが半角数字でなければ登録できないこと
     it "is invalid with a price that has only Half_size number" do
-      item = build(:item, price: "あああ")
+      user = create(:user)
+      item = build(:item, price: "あああ", buyer_id: user.id)
       item.valid?
       expect(item.errors[:price]).to include("半角数字で入力してください")
     end
