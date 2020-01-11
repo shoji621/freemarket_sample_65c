@@ -24,35 +24,33 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-  collection do
-    #Ajaxで動くアクションのルートを作成
-    get 'get_category_children', defaults: { format: 'json' }
-    get 'get_category_grandchildren', defaults: { format: 'json' }
-    get     "confirmation"
+    resources :comments, only: :create
+    collection do
+      #Ajaxで動くアクションのルートを作成
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get     "confirmation"
     end
   end
 
   resources :users, only: [:index, :edit, :update] do
-  collection do
-    get 'logout'
-    get 'introduction'
-    get 'profile'
-    get 'exhibiting'
-    get 'product'
-    get 'progress'
-    get 'completed'
-  
-
+    collection do
+      get 'logout'
+      get 'introduction'
+      get 'profile'
+      get 'exhibiting'
+      get 'product'
+      get 'progress'
+      get 'completed'
     end
   end
 
   resources :card, only: [:new, :index, :create, :destroy]
 
   resources :purchase, only: [:index] do
-  collection do
-    post 'pay',                    to: 'purchase#pay'
-    get 'done',                    to: 'purchase#done'
+    collection do
+      post 'pay',                    to: 'purchase#pay'
+      get 'done',                    to: 'purchase#done'
     end
   end
-
 end

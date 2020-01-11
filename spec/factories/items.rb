@@ -9,8 +9,8 @@ FactoryBot.define do
     postage_id        {1}
     prefecture_id     {1}
     shipping_day_id   {1}
-    buyer             {1}
-    seller            {1}
+    buyer             {2}
+    seller            {}
     created_at        { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
     updated_at        { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
