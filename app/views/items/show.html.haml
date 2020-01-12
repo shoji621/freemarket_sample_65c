@@ -107,8 +107,8 @@
         .comment-caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         -if current_user && @item.buyer_id == nil
           = form_for [@item, @comment], html: {class: 'comment__form'} do |f|
-            = f.text_area :text, placeholder: "コメント本文", rows: "10", class: :comment__form
-            = f.submit "コメントする", class: :comment__btn, data: { confirm: 'コメントしますか？' }
+            = f.text_area :text, placeholder: "コメント本文", rows: "10", class: :comment__form__input
+            = f.submit "コメントする", class: :comment__btn, id: :new_comments
 
       .nav-item 
         - if @item.previous.present?

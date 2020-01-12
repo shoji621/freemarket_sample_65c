@@ -317,7 +317,13 @@
         margin: 10px auto;
         width: 100%;
         box-sizing: border-box;
-
+        &__input {
+          padding: 10px;
+          background-color: #fff;
+          margin: 10px auto;
+          width: 100%;
+          box-sizing: border-box;  
+        }
       }
       .comment__btn {
         background: #aaa;

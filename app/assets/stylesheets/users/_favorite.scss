@@ -7,6 +7,9 @@ ul.mypage__itemlist li{
     color: #333;
     display: flex;
     justify-content: space-between;
+    &:hover {
+      background-color: #FCFCFC;
+    }
     &__left{
       position: relative;
       overflow: hidden;
