@@ -10,6 +10,8 @@
           .details
             .item-imgs
               = image_tag(@images[0].src.to_s, width: '300px', alt: "comming soon", class: "imgs-main")
+              - if @item.buyer_id
+                .imgs-main__soldout
               .imgs-subs
                 .imgs-sub-box
                   - @images.each do |image|
@@ -74,7 +76,8 @@
           -else 
             = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
           .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          .item-discription= @item.text
+          .item-discription
+            = simple_format(@item.text)
         .btn-bar
           .btn-box
             %button{class: "btn", onclick: "location.href='#'", type: "button"}
