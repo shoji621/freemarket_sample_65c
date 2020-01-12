@@ -16,11 +16,11 @@
           .profile_images
             .profile_char
               .profile_icon
-                = image_tag @user.icon_image, width: "60",height: "60", alt: "りんご", class: "input_photo"
+                = icon('fas', 'user-circle', class: "input_icon")
                 = f.text_field :nickname, class: "input_text"
           .profile_writing
             .writing_space 
-              = f.text_area :introduction, class: "input_sentence"              
+              = f.text_area :introduction, class: "input_sentence", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
             .profile_btn
               = f.submit "変更する" , class: "change_btn"
 

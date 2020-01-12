@@ -28,8 +28,10 @@
         padding: 72px 16px 24px;
         .profile_icon {
           display: flex;
-          .input_photo{
-            border-radius: 30px;
+          .input_icon{
+            color: #cccccc;
+            font-size: 50px;
+            margin-right: 10px;
           }
           .input_text{
             width: 186px;
