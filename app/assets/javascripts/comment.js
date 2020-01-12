@@ -13,7 +13,7 @@ $(function(){
       </a>
       <div class="comment__body">
         <div class="comment__body__text">
-          <p>${comment.text}</p>
+          ${comment.text}
         </div>
         <div class="comment__body__time">
           <i class="far fa-clock comment__body__time__icon"></i>
@@ -46,7 +46,7 @@ $(function(){
       alert('エラーが発生したためコメントは送信できませんでした。');
     })
     .always(function() {
-      $('.comment__btn').removeAttr("disabled");
+      $('.comment__btn').prop('disabled', false);
     });
   })
 });
