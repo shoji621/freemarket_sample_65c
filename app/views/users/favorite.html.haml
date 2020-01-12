@@ -1,0 +1,22 @@
+.wrapper
+  .header
+    = render 'items/mercari_header'
+    .sub_header
+      %ul.link_others
+        %li.link_top
+          - breadcrumb :payment
+          = render "layouts/breadcrumbs"
+  .content
+    .mypage_frame
+      =render 'mypage_sidebar'
+      .single-container
+        %main.single-main
+          %section.l-single-container
+            %h2.l-single-head.mypage
+              いいね！一覧
+            %ul.mypage__itemlist
+              - @favorite_items.each do |item|
+                = render partial: "shared/favorite_item", locals: { item: item }
+    =render 'items/sell-btn_icon'
+  .footer
+    = render 'items/mercari_footer'

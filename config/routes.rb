@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :comments, only: :create
+    resource :favorites, only: [:create, :destroy]
     collection do
       #Ajaxで動くアクションのルートを作成
       get 'get_category_children', defaults: { format: 'json' }
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
       get 'product'
       get 'progress'
       get 'completed'
+      get 'favorite'
     end
   end
 

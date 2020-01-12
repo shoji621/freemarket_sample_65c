@@ -1,0 +1,14 @@
+%li
+  = link_to item_path(item.id), class: "mypage__itemlist__link" do
+    .mypage__itemlist__link__left
+      = image_tag item.images.first.src.url, size: "48x48", class: "mypage__itemlist__link__left__image"
+      - if item.buyer_id
+        .mypage__itemlist__link__left__soldout
+    .mypage__itemlist__link__content
+      .mypage__itemlist__link__content--name
+        = item.name
+      .mypage__itemlist__link__content--price
+        ¥
+        = item.price.to_s(:delimited)
+    = icon('fas', 'chevron-right',class: "mypage__itemlist__link__arrow")
+

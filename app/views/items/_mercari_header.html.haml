@@ -22,7 +22,7 @@
         %ul.top-menu__under__user-info
           - if user_signed_in?
             %li.top-menu__under__user-info__menu
-              = link_to "#", class: 'top-menu__under__user-info__menu__link' do
+              = link_to favorite_users_path, class: 'top-menu__under__user-info__menu__link' do
                 = icon('far', 'heart', class: "top-menu__under__user-info__menu__link__icon")
                 いいね！一覧
             %li.top-menu__under__user-info__menu
