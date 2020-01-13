@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   end
 
   resources :card, only: [:new, :index, :create, :destroy]
+  resources :addresses, only: [:update]
 
   resources :purchase, only: [:index] do
     collection do
