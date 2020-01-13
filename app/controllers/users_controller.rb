@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:edit, :update]
 
   def index
   end
@@ -20,14 +21,15 @@ class UsersController < ApplicationController
   def completed
   end
 
-  def edit
+  def edit 
+    @address = @user.address
+    @prefecture = @address.prefecture
   end
 
   def update
-    @user = User.find(params[:id])
-      if @user.update(users_params)
-        redirect_to introduction_users_path
-      end
+    if @user.update(users_params)
+      redirect_to introduction_users_path
+    end
   end
 
   def introduction
@@ -42,4 +44,7 @@ class UsersController < ApplicationController
    params.require(:user).permit(:nickname, :email, :introduction,:last_name , :first_name, :last_name_kana, :first_name_kana, :birthday, :phone_authy, :icon_image)
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
