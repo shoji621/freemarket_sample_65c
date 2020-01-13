@@ -3,6 +3,8 @@
     = image_tag item.images.first.src.url, class: "img"
     %p.price 
       = "¥#{item.price.to_s(:delimited)}"
+    - if item.buyer_id
+      .item-box-inbox__soldout
     .title-box
       %p.title 
         = item.name

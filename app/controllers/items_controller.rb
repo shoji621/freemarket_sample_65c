@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(10)
-
   end
 
   def new
@@ -36,9 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # binding.pry
     @category_id = Category.find_by(name: params[:item][:category_id]).id
-    # Item.update(item_params.merge(category_id: @category_id))
     if @item.update(item_params.merge(category_id: @category_id))
       redirect_to root_path
     else
@@ -60,6 +57,8 @@ class ItemsController < ApplicationController
     @images = Image.where(item_id: params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    @seller_items = Item.where(seller_id: @item.seller_id).order('created_at DESC').limit(6)
+    @not_seller_items = Item.where.not(seller_id: @item.seller_id).order('created_at DESC').limit(6)
   end
 
   def confirmation

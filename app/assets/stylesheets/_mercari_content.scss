@@ -157,6 +157,28 @@ h1,h2,h3,h4,h5,h6,p {
   width: 180px;
   background-color: red;
   position: relative;
+  &__soldout{
+    &::before {
+      content: "";
+      top: 0;
+      left: 0;
+      border-bottom: 8em solid transparent;
+      border-left: 8em solid #ea352d; /* ラベルの色はここで変更 */
+      position: absolute;
+      z-index: 100;
+    }
+    &::after {
+      content: "Sold";
+      display: block;
+      top: 18px;
+      transform: rotate(-45deg);
+      color: #fff; /* 文字色はここで変更 */
+      left: 7px;
+      position: absolute;
+      z-index: 101;
+      font-size: 28px;
+    }
+  }
 }
 
 .img {
