@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :category
   has_one :review
   has_many :comments
-  has_many :favorites, foreign_key: 'User_id', dependent: :destroy
+  # has_many :favorites, foreign_key: 'User_id', dependent: :destroy
   has_many :users, through: :favorites
   has_many :images, dependent: :destroy
   belongs_to :buyer, class_name: "User", optional: true

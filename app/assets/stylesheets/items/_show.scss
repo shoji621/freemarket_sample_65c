@@ -132,6 +132,55 @@
           justify-content: center;
           padding-top: 20px;
         }
+        .change-box {
+          &__list {
+            margin: 24px 0 24px 0;
+            padding: 8px 16px 20px 16px;
+            &__edit {
+              background: #ea352d;
+              font-size: 14px;
+              display: block;
+              margin-top: 16px;
+              text-align: center;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 14px;
+              &__link {
+                color: white;
+              }
+            }
+            &__text {
+              text-align: center;
+              font-size: 16px;
+              margin: 12px;
+            }
+            &__pause {
+              background: rgb(170,170,170);
+              color: white;
+              font-size: 14px;
+              display: block;
+              margin-top: 16px;
+              text-align: center;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 14px;
+            }
+            &__delete {
+              background: rgb(170,170,170);
+              color: white;
+              font-size: 14px;
+              display: block;
+              margin-top: 16px;
+              text-align: center;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 14px;
+              &__link {
+                color: white;
+              }
+            }
+          }
+        }
           .item-price {
             font-size: 50px;
             font-weight: 700;
