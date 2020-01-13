@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy, :show] 
+  before_action :authenticate_user!, except:[:index, :show]
+  before_action :set_item, only: [:edit, :update, :destroy, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(20)
@@ -16,14 +17,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # ブランドはstrでparamsにのってくるので、該当するbrand_idを探す
-    @category_id = Category.find_by(name: params[:item][:category_id]).id
-    @item = Item.new(item_params.merge(category_id: @category_id))
-    if @item.save
-      redirect_to root_path
-    else
-      flash.now[:alert] = @item.errors.full_messages
-      redirect_to action: 'new'
+    unless params[:item][:category_id] == "---"
+    # ブランドはstrでparamsにのってくるので、該当する孫category_idを探す
+      @category_id = Category.find_by(name: params[:item][:category_id]).id
+      @item = Item.new(item_params.merge(category_id: @category_id))
+      if @item.save
+        redirect_to root_path
+      else
+        flash.now[:alert] = @item.errors.full_messages
+        render :new
+      end
     end
   end
 
@@ -49,7 +52,8 @@ class ItemsController < ApplicationController
 
   def show
     @images = Image.where(item_id: params[:id])
-
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def confirmation

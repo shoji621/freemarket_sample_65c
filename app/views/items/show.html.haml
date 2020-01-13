@@ -6,23 +6,21 @@
     .item-page-con 
       .item-details
         .details-box
-          .item-name ロンシャン 折りたたみバッグ コンパクト トートバッグ ハンドバッグ ナイロン
+          .item-name= @item.name
           .details
             .item-imgs
-              = image_tag("ロンシャン1.jpg", width: '300px', alt: "comming soon", class: "imgs-main")
+              = image_tag(@images[0].src.to_s, width: '300px', alt: "comming soon", class: "imgs-main")
+              - if @item.buyer_id
+                .imgs-main__soldout
               .imgs-subs
                 .imgs-sub-box
-                  = image_tag("ロンシャン2.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン3.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン4.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン5.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン6.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
-                  = image_tag("ロンシャン7.jpg", width: '60px', alt: "comming soon", class: "imgs-sub")
+                  - @images.each do |image|
+                    = image_tag(image.src.to_s, width: '60px', alt: "comming soon", class: "imgs-sub")
             %table.item-detail-table{:border => 1}
               %tr
                 %th 出品者
                 %td
-                  =link_to "メルカリｃ", "#", class: "buyer"
+                  =link_to @item.seller.nickname, "#", class: "buyer"
                   .buyer-icon
                     .buyer-icon-box
                       %i.fas.fa-laugh
@@ -41,9 +39,9 @@
               %tr
                 %th カテゴリー
                 %td
-                  =link_to "レディース", "#", class: "item-category-1"
-                  =link_to "＞バッグ", "#", class: "item-category-2"
-                  =link_to "＞トートバッグ", "#", class: "item-category-3"
+                  =link_to @item.category.parent.parent.name, "#", class: "item-category-1"
+                  =link_to @item.category.parent.name, "#", class: "item-category-2"
+                  =link_to @item.category.name, "#", class: "item-category-3"
 
               %tr
                 %th ブランド
@@ -54,47 +52,74 @@
                 %td L
               %tr
                 %th 商品の状態
-                %td 目立った傷や汚れなし
+                %td= @item.condition.name
               %tr
                 %th 送料の負担
-                %td 送料込み(出品者負担)
+                %td= @item.postage.name
               %tr
                 %th 配送の方法
                 %td ゆうゆうメルカリ便
               %tr
                 %th 配送元地域
                 %td
-                  =link_to "東京", "#", class: "erea"
+                  =link_to "#", class: "erea" do
+                    = @item.prefecture.name
               %tr
                 %th 発想の目安
-                %td 1~2日で発送
+                %td= @item.shipping_day.name
           .price-box
-            .item-price ¥7,330
+            .item-price= "¥#{@item.price.to_s(:delimited)}"
             .price-tax （税込）
             .item-shipping-fee 送料込み
-          = link_to "購入画面に進む", '#', class: "item-buy-btn"
+          - if @item.buyer_id?
+            = link_to "売り切れました", confirmation_items_path, class: "item-buy-btn"
+          -else 
+            = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
           .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          .item-discription ミニマルなシルエットながら、ドキュメントやノートパソコンをすっきりと収納できるトートバッグは、理想のパートナーになってくれるでしょう。持ち手が長めなので、肩から掛けて楽に持つことができます。開閉部にはファスナー付きで、持ち物を安全にキープしてくれます。ペーパーバックサイズに折り畳むことも可能です。 日本の折り紙から着想を得たル・プリアージュバッグ。シンプルか閉じるつ独創的なル・プリアージュは、世界中で愛されるアイテムとなりました。このバッグラインはさまざまなフォルムとサイズで展開し、シーズンごとに数十の色で提案されます。羽根を想起するほど軽やかなル・プリアージュは折り畳むと小さく本のサイズとなりますが、日常的な使用に耐える強度を備えています。
+          .item-discription
+            = simple_format(@item.text)
         .btn-bar
           .btn-box
-            %button{class: "btn", onclick: "location.href='#'", type: "button"}
-              %i.far.fa-heart.fa-lg{style:"color:lightgrey"}
-              %span.in-button いいね！ 18
-            %button{class: "btn", onclick: "location.href='#'", type: "button"}
-              %i.far.fa-flag.fa-lg
+            - if @item.favorited_by?(current_user)
+              = link_to item_favorites_path(@item.id), method: :delete, class: "favorite red", remote: false do
+                = icon('fas', 'heart')
+                いいね！
+                = @item.favorites.count
+            - else
+              = link_to item_favorites_path(@item.id), method: :post, class: "favorite", remote: false do
+                = icon('far', 'heart')
+                いいね！
+                = @item.favorites.count
+
+            %button{class: "favorite", onclick: "location.href='#'"}
+              = icon('far', 'flag', class: "fa-lg")
               %span.in-button 不適切な商品の報告
-          %button{class: "policy-btn", onclick: "location.href='#'", type: "button"}
-            %i.fas.fa-lock.fa-lg
+          %button{class: "policy-btn", onclick: "location.href='#'"}
+            = icon('fas', 'lock', class: "fa-lg")
             %span.in-button あんしん・あんぜんへの取り組み
   .comment-page
     .comment-page-con
       .comment-box
+        %ul.comments
+          - if @comments.present?
+            - @comments.each do |comment|
+              = render partial: "comment", locals: { comment: comment }
         .comment-caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.comment
-        = link_to "コメントする", "#", class: "comment-btn"
+        -if current_user && @item.buyer_id == nil
+          = form_for [@item, @comment], html: {class: 'comment__form'} do |f|
+            = f.text_area :text, placeholder: "コメント本文", rows: "10", class: :comment__form__input
+            = f.submit "コメントする", class: :comment__btn, id: :new_comments
+
       .nav-item 
-        = link_to "＜前へ", "#", class: "prev"
-        = link_to "次へ＞", "#", class: "next"
+        - if @item.previous.present?
+          = link_to item_path(@item.previous), class: "prev" do
+            = icon('fa', 'chevron-left')
+            = @item.previous.name
+        - if @item.next.present?
+          = link_to item_path(@item.next), class: "next" do
+            = @item.next.name
+            = icon('fa', 'chevron-right')
+
       .social-media-box 
         .icon-box
           .icon-sns
@@ -114,7 +139,7 @@
               .pinterest
                 %i.fab.fa-pinterest.fa-xs
 
-      = link_to "出品者さんその他出品", "#", class: "buyer-items-etc"
+      = link_to "#{@item.seller.nickname}さんのその他出品", "#", class: "buyer-items-etc" 
       .buyer-items-etc-box
         .buyer-items-etc-box-item
           = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
@@ -229,10 +254,10 @@
     %nav.lower-bar
       .lower-bar-box
         %ul.lower-bar-box-cons
-          %li.lower-bar-box-cons-con
-            = link_to root_path, class: "url" do
-              エフマーケット
-          %li.lower-bar-box-cons-con ＞ 未使用  CROLLA  ニット  ビジュークラッチバッグ
+          %ul.link_others
+            %li.link_top
+              - breadcrumb :items
+              = render "layouts/breadcrumbs"
     
   .footer
     = render "mercari_footer"

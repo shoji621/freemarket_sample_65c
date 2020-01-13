@@ -8,7 +8,7 @@
 @import "mypage_sidebar";
 @import "mypage_mainbar";
 @import "mercari_content";
-@import "show";
+@import "items/show";
 @import "registrations/index";
 @import "registrations/profile";
 @import "registrations/phone_authen";
@@ -21,3 +21,7 @@
 @import "confirmation";
 @import "logout.scss";
 @import "introduction";
+@import "edit";
+@import "purchase/index";
+@import "items/new";
+@import "users/favorite";

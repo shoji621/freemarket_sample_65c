@@ -1,0 +1,14 @@
+div#image-box .js-file_group:not(:last-child){
+  .js-file {
+    display: none;
+  }
+}
+div#image-box .js-file_group:last-child{
+  .js-remove {
+    display: none;
+  }
+}
+
+.js-remove:hover {
+  cursor: pointer;
+}

@@ -11,6 +11,26 @@
     &__upper {
       display: flex;
       justify-content: space-between;
+      .right-side {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        margin-left: 40px;
+        .search-input {
+          width: 100%;
+          height: 40px;
+          border-radius: 5px;
+          background: #F5F5F5;
+          padding-left: 15px;
+          border-style: groove;
+          box-sizing: border-box;
+          &__icon {
+            position:absolute;
+            top: 13px;
+            right: 15px;
+          }
+        }
+      }
     }
     &__under {
       display: flex;
@@ -63,10 +83,26 @@
       }
       &__user-info {
         display: flex;
-      }
-        .user-registration {
-          text-align: center;
-        }
+        &__menu {
+          margin-left: 24px;
+          font-size: 14px;
+          &__link {
+            display: flex;
+            text-decoration: none;
+            width: 100%;
+            padding: 9px 0;
+            &:hover{
+              color: #0099E8;
+              .top-menu__under__user-info__menu__link__icon {
+                color: #0099E8;
+              }
+            }
+            &__icon {
+              color: #cccccc;
+              font-size: 18px;
+              margin-right: 10px;
+            }
+          }
           .registration-btn {
             background-color: rgb(234, 53, 45);
             color: rgb(255, 255, 255);
@@ -79,10 +115,10 @@
             border-radius: 4px;
             padding: 8px 10px;
           }
+        }
         .user-sessions {
           text-align: center;
           margin-left: 11px;
-        }
           .session-btn {
             background-color: rgb(255, 255, 255);
             color: rgb(0, 149, 238);
@@ -96,7 +132,8 @@
             padding: 8px 10px;
             transition: all 0.3s ease-out 0s;
           }
-
+        }
+      }
     }
   }
   .contents {

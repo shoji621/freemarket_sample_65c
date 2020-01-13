@@ -4,7 +4,8 @@
       %figure
       = image_tag "member-noimage.jpg", size: "60x60", class: "user-icon"
       .mypage-user-name
-        ユーザーさん
+        = current_user.nickname 
+        さん
       .mypage-user-evaluation
         評価数 0
         出品数 0
