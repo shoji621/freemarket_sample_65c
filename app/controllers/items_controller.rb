@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy, :show]
+  before_action :set_item, only: [:edit, :update, :destroy, :show] 
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(20)
+
   end
 
   def new
@@ -47,7 +48,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = Image.where(item_id: params[:id])
+
   end
+
+  def confirmation
+  end
+
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -68,12 +75,6 @@ class ItemsController < ApplicationController
 
    def set_item
     @item = Item.find(params[:id])
-  end
-
-  def show
-  end
-
-  def confirmation
   end
 
 end

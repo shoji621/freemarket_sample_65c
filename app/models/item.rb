@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   has_many :favorites, foreign_key: 'User_id', dependent: :destroy
   has_many :users, through: :favorites
   has_many :images, dependent: :destroy
-  has_many_attached :images
   belongs_to :buyer, class_name: "User", optional: true
   belongs_to :seller, class_name: "User", optional: true
   validates :name, :text ,presence: true

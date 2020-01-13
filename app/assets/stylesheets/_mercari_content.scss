@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6,p {
 .popu-box {
   background-color: rgb(255, 255, 255);;
   height: 90px;
-  width: 570px;
+  width: 100%;
   margin: 0 auto;
   padding-top: 45px;
   
@@ -44,11 +44,12 @@ ul2 {
   justify-content: center;
   font-weight: 800;
   font-size: 13px;
+  scroll-behavior: smooth;
 }
 
 li2 {
   float: left;
-  margin: 0 auto;
+  margin: 0 10px;
 }
 
 .cta-btn {
@@ -63,7 +64,7 @@ li2 {
 
 .popu-contents {
   background-color: rgb(245, 245, 245);
-  height: 800px;
+  padding-bottom: 60px;
 }
 
 .sell-box {
@@ -107,7 +108,6 @@ li2 {
 
 .cat-box {
   background-color: rgb(245, 245, 245);
-  height: 1200px;
   width: 1020px;
   margin: 0 auto;
 }
@@ -141,23 +141,23 @@ li2 {
   width: 1020px;
   position: relative;
   display: flex;
-  justify-content: space-between;
   margin: 0;
   flex-wrap: wrap;
-  /* 記事折り返し設定 */
 }
 
-li.item-box {
+.item-box {
   background-color: white;
-  height: 260px;
+  height: 240px;
   width: 180px;
-  margin: 0 0 20px 0;
+  margin: 10px 20px 20px 0;
   box-shadow: 0 0 5px gray;
-
-  /* 記事アイテムの一つの大きさ */
-  /* width: 30%; */
-  /* height: auto; */
-
+  float: left;
+}
+.item-box-inbox {
+  height: 240px;
+  width: 180px;
+  background-color: red;
+  position: relative;
 }
 
 .img {
@@ -169,52 +169,42 @@ li.item-box {
 }
 
 .title-box {
-  height: 60px;
   width: 180px;
+  height: 60px;
   background-color: rgb(255, 255, 255);
 }
 
 .title {
   background-color: rgb(255, 255, 255);
-  margin: 0 6px;
+  margin: 0 10px;
+  padding-top: 5px;
+  overflow: hidden;
+  font-size: 14px;
+  position: absolute;
+  font-weight: 400;
+  height: 2.5em;
 }
 
 .price {
-  background-color: grey;
+  background-color: rgba(0,0,0,.4);
   height: 20px;
   width: 80px;
   position: absolute;
-  bottom: 10px;
   left: 0;
-  font-size: 16px;
-  border-radius: 0 10px 10px 0;
+  font-size: 20px;
+  border-radius: 0 20px 20px 0;
   color: white;
   text-align: center;
-  
+  z-index: 5;
+  bottom: 30%;
+  opacity: 0.8;
 }
 
 .item-box:hover {
-  box-shadow: 0 0 1px blue;
+  box-shadow: 0 0 3px blue;
 }
 
 a {
   text-decoration: none;
 }
 
-/* @media screen and (max-width: 920px) {
-  記事アイテムを大きくして二列にする
-  .items-box {
-    width: 45%;
-  }
-  .items-box p {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .items-box {
-    width: 85%;
-    margin-bottom: -100px;
-  }
-} */
