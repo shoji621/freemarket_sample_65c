@@ -1,0 +1,8 @@
+= link_to item_path(item.id), class: "item-box" do
+  .item-box-inbox
+    = image_tag item.images.first.src.url, class: "img"
+    %p.price 
+      = "¥#{item.price.to_s(:delimited)}"
+    .title-box
+      %p.title 
+        = item.name

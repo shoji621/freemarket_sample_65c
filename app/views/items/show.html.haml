@@ -73,11 +73,26 @@
             .item-shipping-fee 送料込み
           - if @item.buyer_id?
             = link_to "売り切れました", confirmation_items_path, class: "item-buy-btn"
-          -else 
+            .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            .item-discription
+              = simple_format(@item.text)
+          - elsif @item.seller.id == current_user.id
+            .change-box
+              .change-box__list
+                .change-box__list__edit
+                  = link_to "商品の編集", edit_item_path(@item), class: 'change-box__list__edit__link'
+                .change-box__list__text
+                  or
+                .change-box__list__pause
+                  出品を一旦停止する
+                .change-box__list__delete
+                  = link_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: 'change-box__list__delete__link'
+          - else 
             = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
-          .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          .item-discription
-            = simple_format(@item.text)
+            .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            .item-discription
+              = simple_format(@item.text)
+
         .btn-bar
           .btn-box
             - if @item.favorited_by?(current_user)

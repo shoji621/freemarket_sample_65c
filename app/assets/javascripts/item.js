@@ -38,7 +38,7 @@ $(function(){
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      fileIndex.push(fileIndex[fileIndex.length - 1]);
     }
   });
 

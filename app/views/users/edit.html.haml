@@ -19,39 +19,44 @@
             本人確認書類のアップロードについて＞
         %ul.input_list    
           %li.user_name
-            お名前
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true"}
+            %label お名前
+            .name
+              = @user.last_name
+              = @user.first_name
           %li.name_kana
-            %p お名前カナ
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true"}
+            %label お名前カナ
+            .name_kana
+              = @user.last_name_kana
+              = @user.first_name_kana
+            
           %li.birth_month
-            %p 生年月日
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true"}
+            %label 生年月日
+            .birthday
+              = @user.birthday
           %li.postal_code
-            %p 郵便番号
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true",placeholder: "例) 1234567"}
+            %label 郵便番号
+            .zipcode
+              = @address.zipcode
           %li.prefecture
-            %p 都道府県
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true"}
+            %label 都道府県
+            .prefecture
+              = @prefecture.name
           %li.sub_prefe
-            %p 市区町村
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true",placeholder: "例) 横浜市緑区"}
+            %label 市区町村
+            .city
+              = @address.city
           %li.address
-            %p 番地
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true",placeholder: "例) 青山1-1-1"}
+            %label 番地
+            .block
+              = @address.block
           %li.buiding
-            %p 建物名
-            %form.nickname_holder{action: "#",method: "post"}
-            %input.input_text{type: "text",name: "nickname1",required: "true",placeholder: "例) 柳ビル103"}
-
-
+            %label 建物名
+            .building 
+            - if @address.building.empty?
+              = form_for (@address) do |f|
+                = f.text_field :building, placeholder: "例) 柳ビル103", class: "input_text"
+            - else
+              = @address.building
     
         .profile_btn
           = link_to "#" do

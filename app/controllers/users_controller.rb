@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :my_items , only: [:index, :exhibiting]
+  before_action :set_user, only: [:edit, :update]
 
   def index
   end
@@ -20,14 +21,15 @@ class UsersController < ApplicationController
   def completed
   end
 
-  def edit
+  def edit 
+    @address = @user.address
+    @prefecture = @address.prefecture
   end
 
   def update
-    @user = User.find(params[:id])
-      if @user.update(users_params)
-        redirect_to introduction_users_path
-      end
+    if @user.update(users_params)
+      redirect_to introduction_users_path
+    end
   end
 
   def introduction
@@ -44,5 +46,9 @@ class UsersController < ApplicationController
 
   def my_items
     @my_items = Item.where(seller_id: current_user.id)
+  end
+  
+  def set_user
+    @user = User.find(params[:id])
   end
 end
