@@ -1,8 +1,8 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %meta{charset: "UTF-8"}/
     %title HTMLメルカリコンテンツ
   %body
     .contents
@@ -15,31 +15,35 @@
             = image_tag "forest.jpg", size: "1440x400", class:'slide-image'
     .popu-bar
       .popu-box
-        %h1.category 人気のカテゴリー
-        %ul2
-          %li2
-            %a.cta-btn{:href => "#a"} レディース
-          %li2
-            %a.cta-btn{:href => "#b"} メンズ
-          %li2
-            %a.cta-btn{:href => "#c"} 家電・スマホ・カメラ
-          %li2
-            %a.cta-btn{:href => "#d"} おもちゃ・ホビー・グッズ
+        .category 人気のカテゴリー
+        .category-cat-btn
+          = link_to "#a", class: "cat-btn" do
+            レディース
+          = link_to "#b", class: "cat-btn" do
+            メンズ
+          = link_to "#c", class: "cat-btn" do
+            家電・スマホ・カメラ
+          = link_to "#d", class: "cat-btn" do
+            おもちゃ・ホビー・グッズ
     .popu-contents
       = render 'items/sell-btn_icon'
       .cat-box
         .cat-bar
           %h2.cat-new-item
             #a レディース新着アイテム
-          %a.more-btn{:href => "#"} もっと見る ＞
+          = link_to "#", class: "more-btn" do
+            もっと見る
+            = icon('fa', 'chevron-right')
         .items-box
           - @items.each do |item|
-            = render partial: "item_list", locals: { item: item}
+            = render partial: "item_list", locals: { item: item }
       .cat-box
         .cat-bar
           %h2.cat-new-item
             #b メンズ新着アイテム
-          %a.more-btn{:href => "#"} もっと見る ＞
+          = link_to "#", class: "more-btn" do
+            もっと見る
+            = icon('fa', 'chevron-right')
         .items-box
           - @items.each do |item|
-            = render partial: "item_list", locals: { item: item}
+            = render partial: "item_list", locals: { item: item }
