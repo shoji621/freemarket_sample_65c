@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
 
   def update
     @address = @user.address
-    @address.update(building: params[:address][:building])
+    @address.update(building: address_attributes)
     redirect_to edit_user_path
   end
 
@@ -15,5 +15,6 @@ class AddressesController < ApplicationController
 
     def address_attributes
       params.require(:address).permit(:building)
+      params[:address][:building]
     end
 end
