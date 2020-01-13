@@ -156,116 +156,13 @@
 
       = link_to "#{@item.seller.nickname}さんのその他出品", "#", class: "buyer-items-etc" 
       .buyer-items-etc-box
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-      = link_to "その他出品", "#", class: "item-etc"
-      .items-etc-box
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
-        .buyer-items-etc-box-item
-          = image_tag("香水.jpg", alt: "comming soon", class: "buyer-items-etc-box-item-img")
-          .items-box-detaile
-            .items-box-name
-              クリード CREED アバントゥス オードパルファム 50ml EDP SP fs 
-            .items-box-num
-              .items-box-price
-                ¥29,920 
-              .items-box-font
-                .icon-like
-                  ♡
-                %span.like 13
+        - @seller_items.each do |item|
+          = render partial: "seller_item_list", locals: { item: item }
+      = link_to "その他出品", root_path, class: "item-etc"
+      .buyer-items-etc-box
+        - @not_seller_items.each do |item|
+          = render partial: "seller_item_list", locals: { item: item }
+          
     %nav.lower-bar
       .lower-bar-box
         %ul.lower-bar-box-cons

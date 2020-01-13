@@ -1,0 +1,14 @@
+= link_to item_path(item.id), class: "buyer-items-etc-box-item" do
+  .buyer-items-etc-box-item-height
+    = image_tag item.images.first.src.url, size: "220x230", alt: "comming soon", class: "buyer-items-etc-box-item-height-img"
+    - if item.buyer_id
+      .buyer-items-etc-box-item-height__soldout
+  .items-box-detaile
+    .items-box-name
+      = item.name
+    .items-box-num
+      .items-box-price
+        = "¥#{item.price.to_s(:delimited)}"
+      .items-box-font
+        = icon('far', 'heart', class: 'icon-like')
+        = item.favorites.count
