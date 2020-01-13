@@ -24,8 +24,7 @@
                     =link_to item_path(item), class: "atode" do
                       %li.list--item--found
                         .list--item--top
-                          -if item.images.empty?
-                            = image_tag item.images[0], class: 'mini'
+
                         .list--item--body
                           .list--item--text
                             = item.name

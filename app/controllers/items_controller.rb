@@ -30,24 +30,30 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to item_path(item.id)
+    # binding.pry
+    @category_id = Category.find_by(name: params[:item][:category_id]).id
+    # Item.update(item_params.merge(category_id: @category_id))
+    if @item.update(item_params.merge(category_id: @category_id))
+      redirect_to root_path
     else
       flash.now[:alert] = @item.errors.full_messages
       render :edit
     end
   end
 
-  def destroy    
+  def destroy
     if @item.destroy
       redirect_to root_path
     else
     flash.now[:alert] = '削除できませんでした。'
     end
   end
+  
 
   def show
     @images = Image.where(item_id: params[:id])
@@ -72,7 +78,7 @@ class ItemsController < ApplicationController
   
   private
    def item_params
-    params.require(:item).permit(:name, :text, :condition_id, :postage_id, :prefecture_id, :shipping_day_id, :price, :buyer_id, images_attributes:  [:src, :_destroy]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :condition_id, :postage_id, :prefecture_id, :shipping_day_id, :price, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
    end
 
    def set_item
