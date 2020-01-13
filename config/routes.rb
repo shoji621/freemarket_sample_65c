@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :edit, :update] do
+  resources :users, only: [:index, :edit, :update, :create] do
     collection do
       get 'logout'
       get 'introduction'

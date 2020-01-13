@@ -16,7 +16,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    @address = @user.address
+    @prefecture = @address.prefecture
   end
+
+ def create
+  @user = User.find(params[:id])
+  @address = @user.address
+ end
+
 
   def update
     @user = User.find(params[:id])
