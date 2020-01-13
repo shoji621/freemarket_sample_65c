@@ -1,7 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
-    redirect_to item_path(params[:item_id])
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to item_path(params[:item_id])  }
+        format.json
+      end
+    else
+      flash.now[:alert] = 'コメントを入力してください。'
+      redirect_to item_path(params[:item_id])
+    end
   end
 
   private
