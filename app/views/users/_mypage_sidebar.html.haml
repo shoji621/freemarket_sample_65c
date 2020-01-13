@@ -86,7 +86,7 @@
           メール/パスワード
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to edit_user_path(current_user.id), class: "mypage-list-item" do
           本人情報
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li

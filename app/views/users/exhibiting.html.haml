@@ -1,6 +1,11 @@
 .wrapper-all
   .header
     = render "items/mercari_header"
+    .sub_header
+      %ul.link_others
+        %li.link_top
+          - breadcrumb :exhibiting
+          = render "layouts/breadcrumbs"
   .l-container
     = render 'mypage_sidebar'
     .l-content
@@ -16,23 +21,7 @@
             売却済み
         .tab-content
           %ul.mypage-item-tab
-            %li.mypage-doing
-              - @items.each do |item|
-                -if item.seller_id == current_user.id
-                  .tab--content
-                    %ul.list--item--li
-                    =link_to item_path(item), class: "atode" do
-                      %li.list--item--found
-                        .list--item--top
-
-                        .list--item--body
-                          .list--item--text
-                            = item.name
-                          %time.list--item--body__time
-                            %i.listicon1.fa.fa-heart
-                            %span 1
-                            %i.listicon1.fa.fa-comment
-                            %span 0
-                            
+            - @my_items.each do |item|
+              = render partial: "shared/favorite_item", locals: { item: item }
   .footer
     = render 'items/mercari_footer'
