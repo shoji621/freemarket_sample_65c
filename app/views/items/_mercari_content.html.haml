@@ -35,8 +35,9 @@
             もっと見る
             = icon('fa', 'chevron-right')
         .items-box
-          - @items.each do |item|
-            = render partial: "item_list", locals: { item: item }
+          - unless @items == nil
+            - @items.each do |item|
+              = render partial: "item_list", locals: { item: item }
       .cat-box
         .cat-bar
           %h2.cat-new-item
@@ -45,5 +46,6 @@
             もっと見る
             = icon('fa', 'chevron-right')
         .items-box
-          - @items.each do |item|
-            = render partial: "item_list", locals: { item: item }
+          - unless @items == nil
+            - @items.each do |item|
+              = render partial: "item_list", locals: { item: item }
