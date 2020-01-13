@@ -5,7 +5,11 @@ class AddressesController < ApplicationController
   def update
     @address = @user.address
     @address.update(building: address_attributes)
-    redirect_to edit_user_path
+    if @address.update(building: address_attributes)
+      redirect_to edit_user_path
+    else
+      ridirect_to root_path
+    end
   end
 
   private
