@@ -21,12 +21,6 @@ class UsersController < ApplicationController
     @prefecture = @address.prefecture
   end
 
- def create
-  @user = User.find(params[:id])
-  @address = @user.address
- end
-
-
   def update
     @user = User.find(params[:id])
       if @user.update(users_params)
