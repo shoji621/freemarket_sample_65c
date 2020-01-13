@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :my_items , only: [:index, :exhibiting]
 
   def index
   end
@@ -8,9 +9,8 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @favorite_items = @user.favorite_items.includes(:images).order('created_at DESC')
   end
-  
+
   def exhibiting
-    @items = Item.where(params[:id])
     @image = Image.find_by(item_id: params[:id])
   end
 
@@ -42,4 +42,7 @@ class UsersController < ApplicationController
    params.require(:user).permit(:nickname, :email, :introduction,:last_name , :first_name, :last_name_kana, :first_name_kana, :birthday, :phone_authy, :icon_image)
   end
 
+  def my_items
+    @my_items = Item.where(seller_id: current_user.id)
+  end
 end
