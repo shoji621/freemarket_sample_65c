@@ -73,6 +73,9 @@
             .item-shipping-fee 送料込み
           - if @item.buyer_id?
             = link_to "売り切れました", confirmation_items_path, class: "item-buy-btn"
+          - elsif @item.seller_id == current_user.id
+            .item-buy-btn
+              あなたの商品です
           -else 
             = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
           .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
