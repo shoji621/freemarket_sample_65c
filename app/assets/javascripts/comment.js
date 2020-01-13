@@ -40,7 +40,7 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $('.comments').append(html);
-      $('.comment__form__input').val('');
+      $('#new_comment')[0].reset();
     })
     .fail(function(){
       alert('エラーが発生したためコメントは送信できませんでした。');
