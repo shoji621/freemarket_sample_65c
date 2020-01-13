@@ -1,0 +1,18 @@
+%body
+  .popu-contents
+    = render 'items/sell-btn_icon'
+    .cat-box
+      .cat-bar
+        %h2.cat-new-item
+          - if params[:keyword] == """"
+            #a 新着情報
+          - else
+            #a #{params[:keyword]} の検索結果
+      .items-box
+        - if @items[0] == nil
+          %p
+            該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        - else
+          - @items.each do |item|
+            = render partial: "items/item_list", locals: { item: item }
+        
