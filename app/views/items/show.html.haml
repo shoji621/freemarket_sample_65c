@@ -76,7 +76,7 @@
             .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .item-discription
               = simple_format(@item.text)
-          - elsif @item.seller.id == current_user.id
+          - elsif user_signed_in? && @item.seller.id == current_user.id
             .change-box
               .change-box__list
                 .change-box__list__edit
@@ -87,21 +87,34 @@
                   出品を一旦停止する
                 .change-box__list__delete
                   = link_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: 'change-box__list__delete__link'
-          - else 
-            = link_to "購入画面に進む", purchase_index_path(@item), class: "item-buy-btn"
+
+          - else user_signed_in? && @item.seller.id != current_user.id
+            = link_to "購入画面に進む", purchase_path(@item), class: "item-buy-btn"
             .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .item-discription
               = simple_format(@item.text)
 
+          -# - else 
+          -#   = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
+          -#   .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          -#   .item-discription
+          -#   = simple_format(@item.text)
+
         .btn-bar
           .btn-box
-            - if @item.favorited_by?(current_user)
-              = link_to item_favorites_path(@item.id), method: :delete, class: "favorite red", remote: false do
-                = icon('fas', 'heart')
-                いいね！
+            - if user_signed_in?
+              - if @item.favorited_by?(current_user)
+                = link_to item_favorites_path(@item.id), method: :delete, class: "favorite red", remote: false do
+                  = icon('fas', 'heart')
+                  いいね！
+                  = @item.favorites.count
+              - else
+                = link_to item_favorites_path(@item.id), method: :post, class: "favorite", remote: false do
+                  = icon('far', 'heart')
+                  いいね！
                 = @item.favorites.count
             - else
-              = link_to item_favorites_path(@item.id), method: :post, class: "favorite", remote: false do
+              = link_to new_user_session_path, class: "favorite", remote: false do
                 = icon('far', 'heart')
                 いいね！
                 = @item.favorites.count

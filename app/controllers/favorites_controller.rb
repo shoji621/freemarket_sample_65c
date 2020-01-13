@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     # 「current_userに関連したFavoriteクラスの新しいインスタンス」を作成
     favorite = current_user.favorites.build(item_id: params[:item_id])

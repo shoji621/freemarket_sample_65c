@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :comments, only: :create
-    resource :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
     collection do
       #Ajaxで動くアクションのルートを作成
       get 'get_category_children', defaults: { format: 'json' }
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :edit, :update] do
+  resources :users, only: [:index, :edit, :update,] do
     collection do
       get 'logout'
       get 'introduction'
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   resources :card, only: [:new, :index, :create, :destroy]
 
-  resources :purchase, only: [:index] do
+  resources :purchase, only: [:show] do
     collection do
       post 'pay',                    to: 'purchase#pay'
       get 'done',                    to: 'purchase#done'

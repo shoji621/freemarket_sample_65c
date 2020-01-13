@@ -8,8 +8,8 @@ class PurchaseController < ApplicationController
 
   layout "registrations"
 
-  def index
-    @image = Image.find_by(item_id: params[:format])
+  def show
+    @image = Image.find_by(item_id: params[:id])
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to new_card_path
@@ -52,7 +52,7 @@ class PurchaseController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:format])
+    @item = Item.find(params[:id])
   end
 
   def redirect_to_seller_user

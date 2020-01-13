@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy, :show]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(10)
+
   end
 
   def new
@@ -63,6 +64,7 @@ class ItemsController < ApplicationController
 
   def confirmation
   end
+
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
