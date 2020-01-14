@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def favorite
     @user = User.find(current_user.id)
-    @favorite_items = @user.favorite_items.includes(:images).order('created_at DESC')
+    @favorite_items = @user.favorite_items.includes(:images).order('favorites.created_at DESC')
   end
 
   def exhibiting

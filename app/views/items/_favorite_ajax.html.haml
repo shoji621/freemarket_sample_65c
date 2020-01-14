@@ -1,0 +1,19 @@
+- if user_signed_in?
+  - if item.favorited_by?(current_user)
+    = link_to item_favorites_path(item.id), method: :delete, class: "favorite red", remote: true do
+      = icon('fas', 'heart')
+      いいね！
+      = item.favorites.count
+  - else
+    = link_to item_favorites_path(item.id), method: :post, class: "favorite", remote: true do
+      = icon('far', 'heart')
+      いいね！
+      = item.favorites.count
+- else
+  = link_to new_user_session_path, class: "favorite", remote: false do
+    = icon('far', 'heart')
+    いいね！
+    = item.favorites.count
+%button{class: "favorite", onclick: "location.href='#'"}
+  = icon('far', 'flag', class: "fa-lg")
+  %span.in-button 不適切な商品の報告
