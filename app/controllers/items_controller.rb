@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy, :show]
   before_action :move_to_index, only: [:edit, :update]
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(10)
+    @womens_category_ids = Category.joins(:items).where("ancestry LIKE ?", "1/%").ids
+    @womens_categories = Item.where(category_id: @womens_category_ids ).order('created_at DESC').limit(10)
+
+    @mens_category_ids = Category.joins(:items).where("ancestry LIKE ?", "219/%").ids
+    @mens_categories = Item.where(category_id: @mens_category_ids ).order('created_at DESC').limit(10)
   end
 
   def new

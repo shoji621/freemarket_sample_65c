@@ -35,8 +35,8 @@
             もっと見る
             = icon('fa', 'chevron-right')
         .items-box
-          - unless @items == nil
-            - @items.each do |item|
+          - unless @womens_categories == nil
+            - @womens_categories.each do |item|
               = render partial: "item_list", locals: { item: item }
       .cat-box
         .cat-bar
@@ -46,6 +46,6 @@
             もっと見る
             = icon('fa', 'chevron-right')
         .items-box
-          - unless @items == nil
-            - @items.each do |item|
+          - unless @mens_categories == nil
+            - @mens_categories.each do |item|
               = render partial: "item_list", locals: { item: item }
