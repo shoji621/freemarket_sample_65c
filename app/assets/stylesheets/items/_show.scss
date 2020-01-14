@@ -159,6 +159,7 @@
             padding: 8px 16px 20px 16px;
             &__edit {
               background: #ea352d;
+              color: white;
               font-size: 14px;
               display: block;
               margin-top: 16px;
@@ -166,9 +167,6 @@
               box-sizing: border-box;
               width: 100%;
               padding: 14px;
-              &__link {
-                color: white;
-              }
             }
             &__text {
               text-align: center;
@@ -196,9 +194,6 @@
               box-sizing: border-box;
               width: 100%;
               padding: 14px;
-              &__link {
-                color: white;
-              }
             }
           }
         }
