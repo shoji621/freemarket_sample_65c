@@ -21,7 +21,7 @@
                 （税込）送料込み
       %section.buy__content.buy__item
         .buy__content__inner
-          = form_with(url: pay_purchase_index_path(@item), method: :post, params: @item, local: true, class: "buy__form") do |f|
+          = form_with(url: pay_purchase_path(@item), method: :post, local: true, class: "buy__form") do |f|
             .buy__price__table
               .buy__price__table-row.bold
                 .buy__price__table-row-cell-label

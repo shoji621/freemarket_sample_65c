@@ -53,15 +53,16 @@
             %label 建物名
             .building 
             - if @address.building.empty?
-              = form_for (@address) do |f|
+              = form_for @address, url: { controller: 'addresses', action: 'update'} do |f|
                 = f.text_field :building, placeholder: "例) 柳ビル103", class: "input_text"
+                = f.submit "変更する", class: "change_btn"
             - else
               = @address.building
-    
-        .profile_btn
-          = link_to "#" do
-            .change_btn 変更する
-          %p.register 本人情報の登録について＞
+              .profile_btn
+                = link_to root_path do
+                  .change_btn 変更する
+                %p.register 本人情報の登録について＞
+
     = render "items/sell-btn_icon"
 .edit_footer
   = render "items/mercari_footer"

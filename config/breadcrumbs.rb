@@ -11,10 +11,8 @@ crumb :logout do
   parent :mypage
 end
 
-# show.html.hamlの記載を変更後に記述を変更
 crumb :items do 
   link Item.find(params[:id]).name, item_path
-  parent :mypage
 end
 
 crumb :favorite do
