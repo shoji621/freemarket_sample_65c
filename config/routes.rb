@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:update]
 
   resources :purchase, only: [:show] do
-      post 'pay',                    to: 'purchase#pay', on: :member
-      get 'done',                    to: 'purchase#done', on: :collection
+    post 'pay',                    to: 'purchase#pay', on: :member
+    get 'done',                    to: 'purchase#done', on: :collection
   end
 end
