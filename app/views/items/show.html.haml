@@ -93,13 +93,6 @@
             .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .item-discription
               = simple_format(@item.text)
-
-          -# - else 
-          -#   = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
-          -#   .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          -#   .item-discription
-          -#   = simple_format(@item.text)
-
         .btn-bar
           .btn-box
             - if user_signed_in?
@@ -112,7 +105,7 @@
                 = link_to item_favorites_path(@item.id), method: :post, class: "favorite", remote: false do
                   = icon('far', 'heart')
                   いいね！
-                = @item.favorites.count
+                  = @item.favorites.count
             - else
               = link_to new_user_session_path, class: "favorite", remote: false do
                 = icon('far', 'heart')
