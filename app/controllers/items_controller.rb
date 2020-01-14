@@ -17,14 +17,12 @@ class ItemsController < ApplicationController
 
   def create
     unless params[:item][:category_id] == "---"
-    # ブランドはstrでparamsにのってくるので、該当する孫category_idを探す
-      @category_id = Category.find_by(name: params[:item][:category_id]).id
-      @item = Item.new(item_params.merge(category_id: @category_id))
+      @item = Item.new(item_params)
       if @item.save
         redirect_to root_path
       else
         flash.now[:alert] = @item.errors.full_messages
-        render :new
+        redirect_to new_item_path
       end
     end
   end
@@ -35,12 +33,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @category_id = Category.find_by(name: params[:item][:category_id]).id
-    if @item.update(item_params.merge(category_id: @category_id))
+    if @item.update(item_params)
       redirect_to root_path
     else
       flash.now[:alert] = @item.errors.full_messages
-      render :edit
+      redirect_to edit_item_path
     end
   end
 
@@ -79,7 +76,7 @@ class ItemsController < ApplicationController
   
   private
    def item_params
-    params.require(:item).permit(:name, :text, :condition_id, :postage_id, :prefecture_id, :shipping_day_id, :price, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :condition_id, :postage_id, :prefecture_id, :shipping_day_id, :price, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
    end
 
    def set_item
