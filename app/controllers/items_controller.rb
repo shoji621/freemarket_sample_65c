@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
   before_action :set_item, only: [:edit, :update, :destroy, :show]
-
+  before_action :move_to_index, only: [:edit, :update]
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(10)
 
@@ -36,9 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # binding.pry
     @category_id = Category.find_by(name: params[:item][:category_id]).id
-    # Item.update(item_params.merge(category_id: @category_id))
     if @item.update(item_params.merge(category_id: @category_id))
       redirect_to root_path
     else
@@ -85,6 +83,10 @@ class ItemsController < ApplicationController
 
    def set_item
     @item = Item.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path @item.seller.id != current_user.id
   end
 
 end

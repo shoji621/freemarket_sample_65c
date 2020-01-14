@@ -87,18 +87,12 @@
                   出品を一旦停止する
                 .change-box__list__delete
                   = link_to "この商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: 'change-box__list__delete__link'
-
-          - else user_signed_in? && @item.seller.id != current_user.id
+                  
+          - else 
             = link_to "購入画面に進む", purchase_path(@item), class: "item-buy-btn"
             .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .item-discription
               = simple_format(@item.text)
-
-          -# - else 
-          -#   = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
-          -#   .shipping-message この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          -#   .item-discription
-          -#   = simple_format(@item.text)
 
         .btn-bar
           .btn-box

@@ -14,6 +14,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true
   belongs_to :seller, class_name: "User", optional: true
   validates :name, :text, :condition_id, :price, :category_id, :prefecture_id, :shipping_day_id, presence: true
+  validates_associated :image
   validates :price, format: { with: /\A([1-9]\d*,)*[1-9]\d*\z/, message: '半角数字で入力してください'}
   accepts_nested_attributes_for :images, allow_destroy: true
 
