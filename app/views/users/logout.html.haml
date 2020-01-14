@@ -12,8 +12,7 @@
     .logout_form
       .logout_inner
         .logout_content
-          .logout_btn 
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"white"
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout_btn"
     
   
   =render 'items/sell-btn_icon'
