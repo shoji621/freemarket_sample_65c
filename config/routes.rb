@@ -44,6 +44,8 @@ Rails.application.routes.draw do
       get 'progress'
       get 'completed'
       get 'favorite'
+      get 'purchasing'
+      get 'purchased'
     end
   end
 

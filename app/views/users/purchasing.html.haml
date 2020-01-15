@@ -4,7 +4,7 @@
     .sub_header
       %ul.link_others
         %li.link_top
-          - breadcrumb :completed
+          - breadcrumb :purchasing
           = render "layouts/breadcrumbs"
   .l-container
     = render 'mypage_sidebar'
@@ -12,10 +12,8 @@
       %section.mypage-tab-container
         %h2.mypage-tab-head
           =link_to "/" do
-            購入した商品
+            出品した商品
         %ul.mypage-tabs 
-          %li.mypage-info
-            出品中
           %li.mypage-info
             取引中
           %li.mypage-info
@@ -23,6 +21,6 @@
         .tab-content
           %ul.mypage-item-tab
             %li.mypage-doing
-              購入済みの商品がありません
+              取引中の商品がありません
   .footer
     = render 'items/mercari_footer'

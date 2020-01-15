@@ -21,7 +21,7 @@
             売却済み
         .tab-content
           %ul.mypage-item-tab
-            - @my_items.each do |item|
+            - @seller_items.each do |item|
               = render partial: "shared/favorite_item", locals: { item: item }
   .footer
     = render 'items/mercari_footer'
