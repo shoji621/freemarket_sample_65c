@@ -34,11 +34,11 @@
           出品した商品 - 売却済み
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to purchasing_users_path, class: "mypage-list-item" do
           購入した商品 - 取引中
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li
-        =link_to "/", class: "mypage-list-item" do
+        =link_to purchased_users_path, class: "mypage-list-item" do
           購入した商品 - 過去の取引
           = icon('fas', 'fas fa-angle-right', class: "right-btn") 
       %li

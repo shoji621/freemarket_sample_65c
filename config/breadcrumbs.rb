@@ -35,6 +35,16 @@ crumb :completed do
   parent :mypage
 end
 
+crumb :purchasing do
+  link "購入した商品 - 取引中", exhibiting_users_path
+  parent :mypage
+end
+
+crumb :purchased do
+  link "購入した商品 - 過去の取引", progress_users_path
+  parent :mypage
+end
+
 crumb :introduction do
   link "プロフィール", introduction_users_path
   parent :mypage

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :my_items , only: [:index, :exhibiting]
+  before_action :seller_items , only: [:index, :exhibiting]
+  before_action :buyer_items , only: :purchased
   before_action :set_user, only: [:edit, :update]
 
   def index
@@ -12,13 +13,18 @@ class UsersController < ApplicationController
   end
 
   def exhibiting
-    @image = Image.find_by(item_id: params[:id])
   end
 
   def progress
   end
 
   def completed
+  end
+
+  def purchasing
+  end
+
+  def purchased
   end
 
   def edit 
@@ -44,8 +50,12 @@ class UsersController < ApplicationController
    params.require(:user).permit(:nickname, :email, :introduction,:last_name , :first_name, :last_name_kana, :first_name_kana, :birthday, :phone_authy, :icon_image)
   end
 
-  def my_items
-    @my_items = Item.where(seller_id: current_user.id)
+  def seller_items
+    @seller_items = Item.where(seller_id: current_user.id)
+  end
+
+  def buyer_items
+    @buyer_items = Item.where(buyer_id: current_user.id)
   end
   
   def set_user
