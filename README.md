@@ -1,30 +1,5 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # DB設計
-<img width="1032" alt="DB設計図 2019-12-26 15 13 35" src="https://user-images.githubusercontent.com/57927432/71461425-16b94c00-27f3-11ea-9b1c-ae976b114741.png">
+<img width="1032" alt="メルカリ DB設計図" src="https://user-images.githubusercontent.com/57927432/72511472-95535780-388e-11ea-9f25-9c0f2899b284.png">
 
 ## usersテーブル
 |Column|Type|Options|
@@ -50,7 +25,6 @@ Things you may want to cover:
 - has_one :card, dependent: :destroy
 - has_many :sns_credentials
 - has_many :comments
-- has_many :reviews
 - has_many :favorites
 - has_many :favorite_items  through: :favorites, source: :item
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
@@ -109,12 +83,10 @@ Things you may want to cover:
 |seller_id|integer| foreign_key: true|
 
 #### Association
-- belongs_to :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_day
-- has_one :review
 - has_many :images
 - has_many :comment
 - has_many :favorites, foreign_key: 'User_id', dependent: :destroy
@@ -142,24 +114,6 @@ Things you may want to cover:
 #### Association
 - has_many :items
 - has_ancestry
-
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-
-#### Association
-- has_many :items
-
-
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string||
-
-#### Association
-- has_many :items
 
 
 ## conditionsテーブル(gem 'active_hash'を使用)
@@ -193,18 +147,6 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 
 #### Association
-- belongs_to :item
-
-## reviewsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|rate|integer||
-|comment|text||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-
-#### Association
-- belongs_to :user
 - belongs_to :item
 
 
