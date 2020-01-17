@@ -28,8 +28,12 @@ class UsersController < ApplicationController
   end
 
   def edit 
-    @address = @user.address
-    @prefecture = @address.prefecture
+    if current_user == @user
+      @address = @user.address
+      @prefecture = @address.prefecture
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -57,7 +61,7 @@ class UsersController < ApplicationController
   def buyer_items
     @buyer_items = Item.where(buyer_id: current_user.id)
   end
-  
+
   def set_user
     @user = User.find(params[:id])
   end

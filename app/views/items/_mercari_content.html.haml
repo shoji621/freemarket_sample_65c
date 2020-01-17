@@ -29,8 +29,8 @@
       = render 'items/sell-btn_icon'
       .cat-box
         .cat-bar
-          %h2.cat-new-item
-            #a レディース新着アイテム
+          %h2.cat-new-item#a
+            レディース新着アイテム
           = link_to "#", class: "more-btn" do
             もっと見る
             = icon('fa', 'chevron-right')
@@ -40,8 +40,8 @@
               = render partial: "item_list", locals: { item: item }
       .cat-box
         .cat-bar
-          %h2.cat-new-item
-            #b メンズ新着アイテム
+          %h2.cat-new-item#b
+            メンズ新着アイテム
           = link_to "#", class: "more-btn" do
             もっと見る
             = icon('fa', 'chevron-right')
@@ -49,3 +49,22 @@
           - unless @mens_categories == nil
             - @mens_categories.each do |item|
               = render partial: "item_list", locals: { item: item }
+
+      .cat-box
+        .cat-bar
+          %h2.cat-new-item#c
+            家電・スマホ・カメラ新着アイテム
+          = link_to "#", class: "more-btn" do
+            もっと見る
+            = icon('fa', 'chevron-right')
+        .items-box
+
+      .cat-box
+        .cat-bar
+          %h2.cat-new-item#d
+            おもちゃ・ホビー・グッズ新着アイテム
+          = link_to "#", class: "more-btn" do
+            もっと見る
+            = icon('fa', 'chevron-right')
+        .items-box
+
