@@ -1,3 +1,8 @@
+# 最終課題紹介資料
+このアプリの利用する際は、こちらのdocsをご覧ください。
+
+https://docs.google.com/document/d/14lx7LD-OxkfL3N5o9hg3eN1Zj9Pu1OWnIbeEJd3Lgpw/edit#heading=h.uc9r1bu1xm1f
+
 # DB設計
 <img width="1032" alt="メルカリ DB設計図" src="https://user-images.githubusercontent.com/57927432/72511472-95535780-388e-11ea-9f25-9c0f2899b284.png">
 
